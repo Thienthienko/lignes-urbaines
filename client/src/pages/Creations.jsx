@@ -1,9 +1,9 @@
 function Creations() {
   return (
-    <div>
+    <div className="globalContainer">
       <h2>Créations</h2>
-      <div className="globalContainer">
-        <div className="aproposBloc">
+      <div>
+        <div className="principalBloc">
           <p>Spectacles</p>
         </div>
       </div>

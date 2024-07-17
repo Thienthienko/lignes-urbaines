@@ -12,6 +12,8 @@ h2 {
   color: black;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  text-align: center;
 }
 
 .globalContainer {
@@ -19,32 +21,21 @@ h2 {
   height: 100vh;
   background-color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.aproposBloc {
-  width: 500px;
+.logo {
+  width: 100%;
+}
+
+.principalBloc {
+  width: 100vw;
   height: 300px;
   display: flex;
+  flex-direction: column;
+  text-align: center;
   border: solid black 2px;
-}
-
-.hamburger {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: column nowrap;
-  z-index: 10;
-}
-
-.burger {
-  width: 2rem;
-  height: 0.25rem;
-  border-radius: 10px;
-  background-color: black;
-  transform-origin: 1px;
-  transition: all 0.3s linear;
 }
 
 .menu {
@@ -55,21 +46,27 @@ h2 {
 
 .navBar {
   width: 100vw;
-  height: 50px;
-  margin-bottom: 50px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .navBar ul {
   display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  float: right;
-  margin: 20px 0px;
-  padding: 0px 25px;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0px 20px 0px;
+  padding: 0;
 }
 
-.navBar Ul li {
+.navBar ul li {
   list-style-type: none;
-  padding-right: 10px;
+  width: 80px;
 }
 
 .hamburger {
@@ -81,15 +78,6 @@ h2 {
   z-index: 10;
 }
 
-.burger {
-  width: 2rem;
-  height: 0.25rem;
-  border-radius: 10px;
-  background-color: white;
-  transform-origin: 1px;
-  transition: all 0.3s linear;
-}
-
 .container {
   height: 100vh;
   background-size: cover;
@@ -98,7 +86,6 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px;
 }
 
 footer {
@@ -108,12 +95,6 @@ footer {
 }
 
 @media (max-width: 760px) {
-  .hamburger {
-    display: fixed;
-    padding-top: 10px;
-    margin-left: 10px;
-    z-index: 10;
-  }
 }
 
 @media screen and (min-width: 761px) and (max-width: 960px) {

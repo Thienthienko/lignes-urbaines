@@ -1,9 +1,9 @@
 function Contact() {
   return (
-    <div>
+    <div className="globalContainer">
       <h2>Contact</h2>
-      <div className="globalContainer">
-        <div className="aproposBloc">
+      <div>
+        <div className="principalBloc">
           <p>Contact</p>
         </div>
       </div>

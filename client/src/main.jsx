@@ -6,6 +6,7 @@ import Accueil from "./pages/Accueil";
 import Apropos from "./pages/Apropos";
 import Creations from "./pages/Creations";
 import Contact from "./pages/Contact";
+import Medias from "./pages/Medias";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/medias",
+        element: <Medias />,
       },
     ],
   },

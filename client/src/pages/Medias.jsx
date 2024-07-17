@@ -1,16 +1,14 @@
-function Apropos() {
+function Medias() {
   return (
     <div className="globalContainer">
-      <h2>Apropos</h2>
+      <h2>Médias</h2>
       <div>
         <div className="principalBloc">
-          <div>
-            <p>Marion Blanchot</p>
-          </div>
+          <p>Photos</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Apropos;
+export default Medias;

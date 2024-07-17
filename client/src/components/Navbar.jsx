@@ -19,52 +19,60 @@ function Navbar() {
   };
 
   return (
-    <div>
-      <nav className="navBar">
-        <ul>
-          <Link
-            to="/"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <img src={Logo} alt="Logo" width="20%" />
-          </Link>
-          <Link
-            to="/"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <li>Accueil</li>
-          </Link>
-          <Link
-            to="/apropos"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <li>A propos</li>
-          </Link>
-          <Link
-            to="/creations"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <li>Créations</li>
-          </Link>
-          <Link
-            to="/contact"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <li>Contact</li>
-          </Link>
-        </ul>
-      </nav>
-    </div>
+    <nav className="navBar">
+      <ul>
+        <Link
+          to="/"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>
+            <img className="logo" src={Logo} alt="Logo" />
+          </li>
+        </Link>
+        <Link
+          to="/"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Accueil</li>
+        </Link>
+        <Link
+          to="/apropos"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>A propos</li>
+        </Link>
+        <Link
+          to="/creations"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Créations</li>
+        </Link>
+        <Link
+          to="/medias"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Médias</li>
+        </Link>
+        <Link
+          to="/contact"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Contact</li>
+        </Link>
+      </ul>
+    </nav>
   );
 }
 
