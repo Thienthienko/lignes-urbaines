@@ -79,6 +79,14 @@ function Navbar() {
         >
           <li>Inscription</li>
         </Link>
+        <Link
+          to="/connexion"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Connexion</li>
+        </Link>
       </ul>
     </nav>
   );
