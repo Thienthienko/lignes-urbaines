@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigate, Link } from "react-router-dom";
 import Validation from "./inscriptionValidation";
 
 const URL = import.meta.env.VITE_API_URL;
@@ -12,6 +12,7 @@ function Inscription() {
     role: "",
   });
 
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
@@ -43,6 +44,14 @@ function Inscription() {
         });
         if (!response.ok) {
           throw new Error("Erreur lors de l'inscription");
+        }
+        const userData = await response.json();
+
+        // Vérifiez le rôle de l'utilisateur
+        if (userData.role === "admin") {
+          navigate("/apropos");
+        } else {
+          navigate("/");
         }
       } catch (err) {
         console.error("Erreur lors de la requête d'inscription:", err);
@@ -103,6 +112,9 @@ function Inscription() {
           <button type="submit">S'inscrire</button>
         </div>
       </Form>
+      <Link to="/connexion">
+        <p>Déjà un compte ? </p>
+      </Link>
     </div>
   );
 }
