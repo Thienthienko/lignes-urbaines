@@ -1,36 +1,68 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Hamburger from "./Hamburger";
+import Logo from "../assets/images/logo.png";
+import "../App.css";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   const toggleMenu = () => {
     if (window.innerWidth <= 768) {
-      setMenuOpen(!menuOpen);
+      setHamburgerOpen(!hamburgerOpen);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      toggleMenu();
     }
   };
 
   return (
     <div>
       <nav className="navBar">
-        <div className={`menu ${menuOpen ? "open" : "closed"}`}>
-          <Link to="/" onClick={toggleMenu}>
-            <h2>Accueil</h2>
+        <ul>
+          <Link
+            to="/"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            <img src={Logo} alt="Logo" width="20%" />
           </Link>
-          <Link to="/apropos" onClick={toggleMenu}>
-            <h2>A propos</h2>
+          <Link
+            to="/"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            <li>Accueil</li>
           </Link>
-          <Link to="/creations" onClick={toggleMenu}>
-            <h2>Créations</h2>
+          <Link
+            to="/apropos"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            <li>A propos</li>
           </Link>
-          <Link to="/contact" onClick={toggleMenu}>
-            <h2>Contact</h2>
+          <Link
+            to="/creations"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            <li>Créations</li>
           </Link>
-        </div>
-        <div className="Hamburger">
-          <Hamburger />
-        </div>
+          <Link
+            to="/contact"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            <li>Contact</li>
+          </Link>
+        </ul>
       </nav>
     </div>
   );

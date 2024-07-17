@@ -8,6 +8,88 @@ body {
   background-color: black;
 }
 
+h2 {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.globalContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.aproposBloc {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  border: solid black 2px;
+}
+
+.hamburger {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+}
+
+.burger {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: black;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navBar {
+  width: 100vw;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+.navBar ul {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  margin: 20px 0px;
+  padding: 0px 25px;
+}
+
+.navBar Ul li {
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+.hamburger {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+}
+
+.burger {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: white;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
+
 .container {
   height: 100vh;
   background-size: cover;
@@ -25,7 +107,13 @@ footer {
   left: 75%;
 }
 
-@media screen and (max-width: 760px) {
+@media (max-width: 760px) {
+  .hamburger {
+    display: fixed;
+    padding-top: 10px;
+    margin-left: 10px;
+    z-index: 10;
+  }
 }
 
 @media screen and (min-width: 761px) and (max-width: 960px) {
