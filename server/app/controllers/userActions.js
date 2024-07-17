@@ -1,5 +1,4 @@
 const argon2 = require("argon2");
-
 // Import access to database tables
 const tables = require("../../database/tables");
 
@@ -7,7 +6,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all users from the database
-    const users = await tables.User.readAll();
+    const users = await tables.user.readAll();
 
     // Respond with the users in JSON format
     res.json(users);
@@ -20,7 +19,7 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided ID
-    const user = await tables.User.read(req.params.id);
+    const user = await tables.user.read(req.params.id);
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
@@ -44,7 +43,7 @@ const add = async (req, res, next) => {
     user.password = hashedPassword;
 
     // Create a new user with the hashed password
-    const insertId = await tables.User.create(user);
+    const insertId = await tables.user.create(user);
 
     res.status(201).json({ insertId }); // Respond with the created user's ID
   } catch (err) {
