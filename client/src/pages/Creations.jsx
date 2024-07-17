@@ -1,24 +1,37 @@
-import IkoImg from "../assets/images/iko.jpg";
+import { useEffect, useState } from "react";
+
+const URL = import.meta.env.VITE_API_URL;
 
 function Creations() {
+  const [creations, setCreations] = useState([]);
+
+  useEffect(() => {
+    const fetchCreations = async () => {
+      try {
+        const response = await fetch(`${URL}/api/creations`);
+        const data = await response.json();
+        setCreations(data);
+      } catch (err) {
+        console.error("Error fetching creations:", err);
+      }
+    };
+
+    fetchCreations();
+  }, []);
+
   return (
     <div className="globalContainer">
       <h2>Créations</h2>
       <div className="principalBloc">
         <div className="marionApropos">
           <div className="divInfo">
-            <img src={IkoImg} alt="iko" />
-          </div>
-          <div className="divInfo">
-            <p>Title : Spetacle Iko</p>
-            <p>
-              Description : Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Consectetur dicta, ullam, inventore laudantium eius modi
-              fuga veniam velit neque amet aliquam architecto perferendis harum
-              explicabo quae. Inventore eum quas quidem.
-            </p>
-            <p>Image : </p>
-            <p>Interprètes : Laurène, Lukas, Yous, Eva</p>
+            {creations.map((creation) => (
+              <div key={creation.id}>
+                <p>Title: {creation.title}</p>
+                <p>Description: {creation.description}</p>
+                <p>Dancer Name: {creation.dancer_name}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
