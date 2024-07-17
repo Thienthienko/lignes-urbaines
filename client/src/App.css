@@ -40,6 +40,7 @@ h3 {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   border: solid black 2px;
 }
 
@@ -128,6 +129,29 @@ h3 {
 
 .mediasFlex img {
   width: 80%;
+}
+
+.leftRightContainer {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: solid black 2px;
+  align-items: center;
+}
+
+.leftBloc {
+  border: solid black 2px;
+  background-color: black;
+  width: 300px;
+  height: 400px;
+}
+
+.rightBloc {
+  border: solid black 2px;
+  width: 300px;
+  height: 400px;
 }
 
 footer {
