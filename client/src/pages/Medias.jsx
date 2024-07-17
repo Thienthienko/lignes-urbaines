@@ -1,10 +1,31 @@
+import Laurene from "../assets/images/laurene.jpg";
+import Lukas from "../assets/images/lukas.jpg";
+import Yous from "../assets/images/yous.jpg";
+import Eva from "../assets/images/eva.jpg";
+
 function Medias() {
   return (
     <div className="globalContainer">
       <h2>Médias</h2>
-      <div>
-        <div className="principalBloc">
-          <p>Photos</p>
+
+      <div className="principalBloc">
+        <div className="mediasFlex">
+          <div>
+            <h3>Laurène</h3>
+            <img src={Laurene} alt="" />
+          </div>
+          <div>
+            <h3>Lukas</h3>
+            <img src={Lukas} alt="" />
+          </div>
+          <div>
+            <h3>Youness</h3>
+            <img src={Yous} alt="" />
+          </div>
+          <div>
+            <h3>Eva</h3>
+            <img src={Eva} alt="" />
+          </div>
         </div>
       </div>
     </div>

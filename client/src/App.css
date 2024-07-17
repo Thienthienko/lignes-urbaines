@@ -16,6 +16,10 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  color: black;
+}
+
 .globalContainer {
   width: 100vw;
   height: 100vh;
@@ -108,6 +112,22 @@ h2 {
 
 .divInfo p {
   color: black;
+}
+
+.mediasFlex {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.mediasFlex div {
+  width: 300px;
+}
+
+.mediasFlex img {
+  width: 80%;
 }
 
 footer {
