@@ -71,6 +71,14 @@ function Navbar() {
         >
           <li>Contact</li>
         </Link>
+        <Link
+          to="/inscription"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <li>Inscription</li>
+        </Link>
       </ul>
     </nav>
   );

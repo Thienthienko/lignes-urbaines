@@ -132,8 +132,8 @@ h3 {
 }
 
 .leftRightContainer {
-  width: 800px;
-  height: 500px;
+  width: 100vw;
+  height: 800px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -144,14 +144,72 @@ h3 {
 .leftBloc {
   border: solid black 2px;
   background-color: black;
-  width: 300px;
-  height: 400px;
+  width: 500px;
+  height: 450px;
 }
 
 .rightBloc {
   border: solid black 2px;
-  width: 300px;
-  height: 400px;
+  width: 500px;
+  height: 450px;
+}
+
+form {
+  max-width: 900px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid #5e5e60 3px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.formRow {
+  margin: 10px 20px 20px 10px;
+}
+.form-control {
+  max-width: 500px;
+  max-height: 200px;
+}
+
+.formInput {
+  padding: 15px 10px;
+  background-color: white;
+}
+
+.firstNameInput input {
+  border: solid #3b3b40 2px;
+  border-radius: 5px;
+  width: 130px;
+}
+
+.lastNameInput input {
+  border: solid #3b3b40 2px;
+  border-radius: 5px;
+  width: 130px;
+}
+
+.emailInput input {
+  border: solid #3b3b40 2px;
+  border-radius: 5px;
+  width: 130px;
+}
+
+.phoneInput input {
+  border: solid #3b3b40 2px;
+  border-radius: 5px;
+  width: 130px;
+}
+
+.messageInput input {
+  border: solid #3b3b40 2px;
+  border-radius: 5px;
+}
+
+.submitButton {
+  width: 100%;
 }
 
 footer {

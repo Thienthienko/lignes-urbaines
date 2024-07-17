@@ -7,6 +7,7 @@ import Apropos from "./pages/Apropos";
 import Creations from "./pages/Creations";
 import Contact from "./pages/Contact";
 import Medias from "./pages/Medias";
+import Inscription from "./pages/Inscription";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/medias",
         element: <Medias />,
+      },
+      {
+        path: "/inscription",
+        element: <Inscription />,
       },
     ],
   },
