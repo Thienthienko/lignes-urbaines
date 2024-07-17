@@ -10,7 +10,15 @@ function Creations() {
             <img src={IkoImg} alt="iko" />
           </div>
           <div className="divInfo">
-            <p>Spetacle Iko</p>
+            <p>Title : Spetacle Iko</p>
+            <p>
+              Description : Lorem ipsum dolor, sit amet consectetur adipisicing
+              elit. Consectetur dicta, ullam, inventore laudantium eius modi
+              fuga veniam velit neque amet aliquam architecto perferendis harum
+              explicabo quae. Inventore eum quas quidem.
+            </p>
+            <p>Image : </p>
+            <p>Interprètes : Laurène, Lukas, Yous, Eva</p>
           </div>
         </div>
       </div>

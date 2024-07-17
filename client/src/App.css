@@ -109,6 +109,7 @@ h3 {
 
 .divInfo {
   width: 400px;
+  text-align: left;
 }
 
 .divInfo p {
@@ -124,7 +125,7 @@ h3 {
 }
 
 .mediasFlex div {
-  width: 300px;
+  width: 150px;
 }
 
 .mediasFlex img {
@@ -212,10 +213,37 @@ form {
   width: 100%;
 }
 
+.creationsMediasForm {
+  width: 100vw;
+  height: 100vh;
+  border: solid violet 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.creationsForm {
+  width: 400px;
+  height: 400px;
+  border: solid red 2px;
+  text-align: center;
+}
+
+.mediasForm {
+  width: 400px;
+  height: 400px;
+  border: solid blue 2px;
+  text-align: center;
+}
+
 footer {
   position: absolute;
   top: 85%;
   left: 75%;
+}
+
+.blocMedias {
+  width: 100vw;
 }
 
 @media (max-width: 760px) {

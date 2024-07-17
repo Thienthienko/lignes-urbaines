@@ -10,19 +10,19 @@ function Medias() {
 
       <div className="principalBloc">
         <div className="mediasFlex">
-          <div>
+          <div className="blocMedias">
             <h3>Laurène</h3>
             <img src={Laurene} alt="" />
           </div>
-          <div>
+          <div className="blocMedias">
             <h3>Lukas</h3>
             <img src={Lukas} alt="" />
           </div>
-          <div>
+          <div className="blocMedias">
             <h3>Youness</h3>
             <img src={Yous} alt="" />
           </div>
-          <div>
+          <div className="blocMedias">
             <h3>Eva</h3>
             <img src={Eva} alt="" />
           </div>
