@@ -1,3 +1,7 @@
+import Twitter from "../assets/images/twitter.png";
+import Instagram from "../assets/images/instagram.png";
+import Facebook from "../assets/images/facebook.png";
+
 function Contact() {
   return (
     <div className="globalContainer">
@@ -7,6 +11,15 @@ function Contact() {
           <div className="leftRightContainer">
             <div className="leftBloc">
               <p>Contact</p>
+              <p>Un projet ? Discutons</p>
+              <p>+33 6 14 83 89 97</p>
+              <p>compagnies.lignes.urbaines@gmail.com</p>
+              <p>140 cours Emile Zola 69100 Villeurbanne</p>
+              <div className="iconContact">
+                <img src={Twitter} alt="" />
+                <img src={Instagram} alt="" />
+                <img src={Facebook} alt="" />
+              </div>
             </div>
             <div className="rightBloc">
               <h3>Formulaire</h3>

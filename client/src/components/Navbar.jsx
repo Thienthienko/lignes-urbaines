@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserContext } from "./contexts/UserContext";
 
+import Profil from "../assets/images/profil.png";
 import Logo from "../assets/images/logo.png";
 import "../App.css";
 
@@ -9,10 +10,9 @@ function Navbar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const { user, logout } = useUserContext();
   const navigate = useNavigate();
+
   const toggleMenu = () => {
-    if (window.innerWidth <= 768) {
-      setHamburgerOpen(!hamburgerOpen);
-    }
+    setHamburgerOpen(!hamburgerOpen);
   };
 
   const handleKeyDown = (event) => {
@@ -29,29 +29,28 @@ function Navbar() {
       window.location.reload();
     }, 1000);
   };
+
   return (
     <nav className="navBar">
-      <ul>
-        <li>
-          <Link
-            to="/"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            <img className="logo" src={Logo} alt="Logo" />
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            Accueil
-          </Link>
-        </li>
+      <div className="navBarContent">
+        <Link
+          to="/"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          tabIndex="0"
+        >
+          <img className="logo" src={Logo} alt="Logo" />
+        </Link>
+        <button
+          type="button"
+          className="hamburger"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+        >
+          <span className="hamburgerIcon">{hamburgerOpen ? "✕" : "☰"}</span>
+        </button>
+      </div>
+      <ul className={`navLinks ${hamburgerOpen ? "open" : ""}`}>
         <li>
           <Link
             to="/apropos"
@@ -111,7 +110,7 @@ function Navbar() {
               onKeyDown={handleKeyDown}
               tabIndex="0"
             >
-              Inscription
+              <img className="logo" src={Profil} alt="profil" />
             </Link>
           </li>
         )}

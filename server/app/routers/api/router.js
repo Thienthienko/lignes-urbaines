@@ -18,6 +18,10 @@ const creationsRouter = require("./creations/router");
 
 router.use("/creations", creationsRouter);
 
+const mediasRouter = require("./medias/router");
+
+router.use("/medias", mediasRouter);
+
 /* ************************************************************************* */
 
 module.exports = router;

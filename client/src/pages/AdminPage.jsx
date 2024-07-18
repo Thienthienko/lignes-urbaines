@@ -5,33 +5,35 @@ const URL = import.meta.env.VITE_API_URL;
 
 function AdminPage() {
   const navigate = useNavigate();
-  const [values, setValues] = useState({
+
+  // State pour le formulaire de Créations
+  const [creationValues, setCreationValues] = useState({
     title: "",
     description: "",
     dancer: "",
   });
-  const [image, setImage] = useState(null);
+  const [creationImage, setCreationImage] = useState(null);
 
   const handleInputCreate = (event) => {
-    setValues((prev) => ({
+    setCreationValues((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const handleFileChange = (event) => {
-    setImage(event.target.files[0]);
+  const handleFileChangeCreate = (event) => {
+    setCreationImage(event.target.files[0]);
   };
 
   const handleSubmitCreate = async (event) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append("title", values.title);
-    formData.append("description", values.description);
-    formData.append("dancer", values.dancer);
-    if (image) {
-      formData.append("image", image);
+    formData.append("title", creationValues.title);
+    formData.append("description", creationValues.description);
+    formData.append("dancer", creationValues.dancer);
+    if (creationImage) {
+      formData.append("image", creationImage);
     }
 
     try {
@@ -55,6 +57,55 @@ function AdminPage() {
     }
   };
 
+  // State pour le formulaire de Médias
+  const [mediaValues, setMediaValues] = useState({
+    title: "",
+    image: null,
+  });
+
+  const handleInputMedia = (event) => {
+    setMediaValues((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleFileChangeMedia = (event) => {
+    setMediaValues((prev) => ({
+      ...prev,
+      image: event.target.files[0],
+    }));
+  };
+
+  const handleSubmitMedia = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", mediaValues.title);
+    if (mediaValues.image) {
+      formData.append("image", mediaValues.image);
+    }
+
+    try {
+      const response = await fetch(`${URL}/api/medias`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de la création du nouveau média");
+      }
+
+      // Naviguer vers la page des médias après soumission réussie
+      navigate("/medias");
+    } catch (err) {
+      console.error(
+        "Erreur lors de la requête de création du nouveau média:",
+        err
+      );
+    }
+  };
+
   return (
     <div className="globalContainer">
       <h2>Admin</h2>
@@ -71,7 +122,7 @@ function AdminPage() {
               type="text"
               placeholder="Titre"
               name="title"
-              value={values.title}
+              value={creationValues.title}
               onChange={handleInputCreate}
               required
             />
@@ -80,7 +131,7 @@ function AdminPage() {
               type="text"
               placeholder="Description"
               name="description"
-              value={values.description}
+              value={creationValues.description}
               onChange={handleInputCreate}
               required
             />
@@ -89,7 +140,7 @@ function AdminPage() {
               type="text"
               placeholder="Dancer Name"
               name="dancer"
-              value={values.dancer}
+              value={creationValues.dancer}
               onChange={handleInputCreate}
               required
             />
@@ -97,7 +148,7 @@ function AdminPage() {
             <input
               type="file"
               name="image"
-              onChange={handleFileChange}
+              onChange={handleFileChangeCreate}
               accept="image/*"
               required
             />
@@ -108,6 +159,32 @@ function AdminPage() {
         </div>
         <div className="mediasForm">
           <h3>Formulaire Médias</h3>
+          <form
+            method="post"
+            onSubmit={handleSubmitMedia}
+            encType="multipart/form-data"
+          >
+            <h4>Titre</h4>
+            <input
+              type="text"
+              placeholder="Titre"
+              name="title"
+              value={mediaValues.title}
+              onChange={handleInputMedia}
+              required
+            />
+            <h4>Image</h4>
+            <input
+              type="file"
+              name="image"
+              onChange={handleFileChangeMedia}
+              accept="image/*"
+              required
+            />
+            <button type="submit">
+              <p>Sauvegarder</p>
+            </button>
+          </form>
         </div>
       </div>
     </div>

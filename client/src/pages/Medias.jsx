@@ -1,30 +1,38 @@
-import Laurene from "../assets/images/laurene.jpg";
-import Lukas from "../assets/images/lukas.jpg";
-import Yous from "../assets/images/yous.jpg";
-import Eva from "../assets/images/eva.jpg";
+import { useEffect, useState } from "react";
+
+const URL = import.meta.env.VITE_API_URL;
 
 function Medias() {
+  const [medias, setMedias] = useState([]);
+
+  useEffect(() => {
+    const fetchCreations = async () => {
+      try {
+        const response = await fetch(`${URL}/api/medias`);
+        const data = await response.json();
+        setMedias(data);
+      } catch (err) {
+        console.error("Error fetching creations:", err);
+      }
+    };
+
+    fetchCreations();
+  }, []);
   return (
     <div className="globalContainer">
       <h2>Médias</h2>
 
       <div className="principalBloc">
-        <div className="mediasFlex">
-          <div className="blocMedias">
-            <h3>Laurène</h3>
-            <img src={Laurene} alt="" />
-          </div>
-          <div className="blocMedias">
-            <h3>Lukas</h3>
-            <img src={Lukas} alt="" />
-          </div>
-          <div className="blocMedias">
-            <h3>Youness</h3>
-            <img src={Yous} alt="" />
-          </div>
-          <div className="blocMedias">
-            <h3>Eva</h3>
-            <img src={Eva} alt="" />
+        <div className="mediasFlexContainer">
+          <div className="mediasFlex">
+            {medias.map((media) => (
+              <div key={media.id} className="blocMedias">
+                <div className="sectionMedias">
+                  <h4>{media.title}</h4>
+                  <img className="mediasImg" src={`/img/${media.img}`} alt="" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

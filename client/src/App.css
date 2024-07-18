@@ -10,7 +10,7 @@ body {
 
 h2 {
   color: black;
-  margin: 0;
+  margin: 20px 0px 20px 0px;
   padding: 0;
   width: 100vw;
   text-align: center;
@@ -20,12 +20,54 @@ h3 {
   color: black;
 }
 
+.mainAccueil {
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  max-height: 90vh;
+  object-fit: cover;
+}
+
+.contentAccueil {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* background-color: #000000cc; */
+}
+
 .globalContainer {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.principalBloc {
+  width: 100vw;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
   align-items: center;
 }
 
@@ -33,56 +75,61 @@ h3 {
   width: 100%;
 }
 
-.principalBloc {
-  width: 100vw;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  border: solid black 2px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/* ------------------------------------------NAVBAR ------------------------------------------*/
 
 .navBar {
-  width: 100vw;
-  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: black;
+  position: relative;
+  z-index: 99;
+}
+
+.navBarContent {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
 }
 
-.navBar ul {
+.navLinks li {
   display: flex;
-  width: 100vw;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  margin: 20px 0px 20px 0px;
+  margin-right: 20px;
   padding: 0;
 }
 
-.navBar ul li {
-  list-style-type: none;
-  width: 80px;
+.navLinks li a,
+.navLinks li button {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.hamburger {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: column nowrap;
-  z-index: 10;
-}
+/* ------------------------------------------NAVBAR ------------------------------------------*/
 
 .container {
   height: 100vh;
@@ -97,65 +144,75 @@ h3 {
 .marionApropos {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  border: solid grey 2px;
+
   width: 100vw;
-  height: 500px;
 }
 
 .marionApropos img {
-  width: 80%;
+  width: 100%;
+  margin-top: 18.72px;
 }
 
 .divInfo {
-  width: 100vw;
+  width: 300px;
+}
+.divInfoText {
+  display: flex;
+  flex-direction: column;
   text-align: left;
+  padding: 0px 30px 0px 30px;
+  max-width: 400px;
+}
+
+.divInfoText p,
+h3,
+h4 {
+  color: black;
+  text-align: left;
+  max-width: 400px;
+}
+
+.mediasFlexContainer {
   display: flex;
   flex-direction: row;
-  padding: 0px 30px 0px 30px;
 }
-
-.divInfo p {
-  color: black;
-}
-
 .mediasFlex {
-  width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.mediasFlex div {
-  width: 150px;
-}
-
-.mediasFlex img {
-  width: 80%;
+  justify-content: center;
+  width: 100vw;
 }
 
 .leftRightContainer {
   width: 100vw;
-  height: 800px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border: solid black 2px;
+
   align-items: center;
 }
 
 .leftBloc {
+  display: flex;
+  flex-direction: column;
   border: solid black 2px;
   background-color: black;
+  text-align: left;
   width: 500px;
   height: 450px;
+  padding-left: 30px;
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
 }
 
 .rightBloc {
   border: solid black 2px;
   width: 500px;
   height: 450px;
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
 }
 
 form {
@@ -165,7 +222,6 @@ form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border: solid #5e5e60 3px;
   margin: 20px;
   border-radius: 10px;
 }
@@ -232,6 +288,44 @@ form {
   text-align: center;
 }
 
+.creationsBloc {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 500px;
+}
+
+.creationsSection {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.principalSection {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  width: 300px;
+  margin: 0px 20px 0px 20px;
+}
+
+.principalSectionImg {
+  max-height: 300px;
+}
+
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0px 20px 0px 20px;
+}
+
+.creationText {
+  color: black;
+}
 .mediasForm {
   width: 400px;
   height: 400px;
@@ -246,14 +340,61 @@ footer {
 }
 
 .blocMedias {
-  width: 100vw;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
-.creationsImg {
-  width: 100px;
+.mediasImg {
+  width: 60%;
 }
 
-@media (max-width: 760px) {
+.sectionMedias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconContact {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+}
+.iconContact img {
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+  }
+
+  .navLinks.open {
+    display: flex;
+  }
+
+  .navLinks li {
+    margin: 0;
+    padding: 1rem 0;
+  }
+
+  .navLinks li:first-child {
+    border-top: none;
+  }
+
+  .logo {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 761px) and (max-width: 960px) {
