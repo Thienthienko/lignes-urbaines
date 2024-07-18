@@ -108,8 +108,11 @@ h3 {
 }
 
 .divInfo {
-  width: 400px;
+  width: 100vw;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 30px 0px 30px;
 }
 
 .divInfo p {
@@ -244,6 +247,10 @@ footer {
 
 .blocMedias {
   width: 100vw;
+}
+
+.creationsImg {
+  width: 100px;
 }
 
 @media (max-width: 760px) {

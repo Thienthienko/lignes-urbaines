@@ -1,12 +1,7 @@
 const express = require("express");
 
-const router = express.Router();
+const upload = require("../../../multerConfig");
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
-// Import offer-related actions
 const {
   browse,
   read,
@@ -15,12 +10,12 @@ const {
   destroy,
 } = require("../../../controllers/creationsActions");
 
+const router = express.Router();
+
 router.get("/", browse);
 router.get("/:id", read);
-router.post("/", add);
+router.post("/", upload.single("image"), add);
 router.put("/:id", edit);
 router.delete("/:id", destroy);
-
-/* ************************************************************************* */
 
 module.exports = router;
