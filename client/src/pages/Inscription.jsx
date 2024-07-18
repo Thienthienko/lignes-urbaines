@@ -62,11 +62,8 @@ function Inscription() {
   return (
     <div className="globalContainer">
       <h2>Inscription</h2>
-      <Form method="post" onSubmit={handleSubmit}>
+      <Form method="post" onSubmit={handleSubmit} className="inscriptionForm">
         <div className="row formRow">
-          <label htmlFor="pseudo">
-            <p>Pseudo</p>
-          </label>
           <div className="firstNameInput">
             <input
               type="text"
@@ -79,9 +76,6 @@ function Inscription() {
           </div>
         </div>
         <div className="row formRow">
-          <label htmlFor="email">
-            <p>Adresse email</p>
-          </label>
           <div className="emailInput">
             <input
               type="email"
@@ -94,9 +88,6 @@ function Inscription() {
           </div>
         </div>
         <div className="row formRow">
-          <label htmlFor="password">
-            <p>Mot de passe</p>
-          </label>
           <div className="emailInput">
             <input
               type="password"
@@ -108,8 +99,10 @@ function Inscription() {
             {errors.password !== undefined && <span>{errors.password}</span>}
           </div>
         </div>
-        <div className="submitButton">
-          <button type="submit">S'inscrire</button>
+        <div className="buttonBloc">
+          <button className="buttonCreationBlack" type="submit">
+            <p>S'inscrire</p>
+          </button>
         </div>
       </Form>
       <Link to="/connexion">

@@ -113,6 +113,7 @@ function AdminPage() {
         <div className="creationsForm">
           <h3>Formulaire Créations</h3>
           <form
+            className="createForm"
             method="post"
             onSubmit={handleSubmitCreate}
             encType="multipart/form-data"
@@ -120,25 +121,23 @@ function AdminPage() {
             <h4>Titre</h4>
             <input
               type="text"
-              placeholder="Titre"
               name="title"
               value={creationValues.title}
               onChange={handleInputCreate}
               required
             />
             <h4>Description</h4>
-            <input
+            <textarea
+              className="textAreaInput"
               type="text"
-              placeholder="Description"
               name="description"
               value={creationValues.description}
               onChange={handleInputCreate}
               required
             />
-            <h4>Dancer Name</h4>
+            <h4>Interprètes</h4>
             <input
               type="text"
-              placeholder="Dancer Name"
               name="dancer"
               value={creationValues.dancer}
               onChange={handleInputCreate}
@@ -152,14 +151,17 @@ function AdminPage() {
               accept="image/*"
               required
             />
-            <button type="submit">
-              <p>Sauvegarder</p>
-            </button>
+            <div className="buttonBloc">
+              <button className="buttonCreation" type="submit">
+                <p>Sauvegarder</p>
+              </button>
+            </div>
           </form>
         </div>
         <div className="mediasForm">
           <h3>Formulaire Médias</h3>
           <form
+            className="leftMediasForm"
             method="post"
             onSubmit={handleSubmitMedia}
             encType="multipart/form-data"
@@ -167,7 +169,6 @@ function AdminPage() {
             <h4>Titre</h4>
             <input
               type="text"
-              placeholder="Titre"
               name="title"
               value={mediaValues.title}
               onChange={handleInputMedia}
@@ -181,9 +182,11 @@ function AdminPage() {
               accept="image/*"
               required
             />
-            <button type="submit">
-              <p>Sauvegarder</p>
-            </button>
+            <div className="buttonBloc">
+              <button className="buttonCreation" type="submit">
+                <p>Sauvegarder</p>
+              </button>
+            </div>
           </form>
         </div>
       </div>

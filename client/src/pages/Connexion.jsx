@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useUserContext } from "../components/contexts/UserContext";
 
@@ -59,7 +59,7 @@ function Connexion() {
   return (
     <div className="globalContainer">
       <h2>Connexion</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="connexionForm">
         <div className="row formRow">
           <div className="firstNameInput">
             <input
@@ -82,10 +82,15 @@ function Connexion() {
             />
           </div>
         </div>
-        <div className="submitButton">
-          <button type="submit">Se connecter</button>
+        <div className="buttonBloc">
+          <button className="buttonCreationBlack" type="submit">
+            <p>Se Connecter</p>
+          </button>
         </div>
       </form>
+      <Link to="/inscription">
+        <p>Pas de compte ?</p>
+      </Link>
     </div>
   );
 }
