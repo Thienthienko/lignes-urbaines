@@ -23,22 +23,25 @@ function Creations() {
     <div className="globalContainer">
       <h2>Créations</h2>
       <div className="principalBloc">
-        <div className="marionApropos">
-          <div className="divInfo">
-            {creations.map((creation) => (
-              <div key={creation.id}>
-                <p>Title: {creation.title}</p>
-                <p>Description: {creation.description}</p>
-                <p>Dancer Name: {creation.dancer}</p>
-
+        <div className="creationsBloc">
+          {creations.map((creation) => (
+            <section key={creation.id} className="creationsSection">
+              <div className="principalSection">
                 <img
-                  className="creationsImg"
+                  className="principalSectionImg"
                   src={`/img/${creation.img}`}
                   alt=""
                 />
               </div>
-            ))}
-          </div>
+              <div className="secondSection">
+                <p className="creationText">Title: {creation.title}</p>
+                <p className="creationText">
+                  Description: {creation.description}
+                </p>
+                <p className="creationText">Dancer Name: {creation.dancer}</p>
+              </div>
+            </section>
+          ))}
         </div>
       </div>
     </div>
