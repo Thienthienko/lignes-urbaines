@@ -9,10 +9,10 @@ class CreationsRepository extends AbstractRepository {
   async create(creation) {
     const [result] = await this.database.query(
       `
-      INSERT INTO ${this.table} (title, description, img, dancer_name)
+      INSERT INTO ${this.table} (title, description, img, dancer)
       VALUES (?, ?, ?, ?)
     `,
-      [creation.title, creation.description, creation.img, creation.dancer_name]
+      [creation.title, creation.description, creation.img, creation.dancer]
     );
 
     return result.insertId;

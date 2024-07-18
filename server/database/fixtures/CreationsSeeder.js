@@ -1,4 +1,3 @@
-const path = require("path");
 const AbstractSeeder = require("./AbstractSeeder");
 const UserSeeder = require("./UserSeeder");
 
@@ -6,14 +5,14 @@ const creations = [
   {
     title: "First Creation",
     description: "Description of the first creation.",
-    img: path.join(__dirname, "../../public/assets/images/ikigai.jpg"),
-    dancer_name: "Dancer One",
+    img: "ikigai.jpg",
+    dancer: "Dancer One",
   },
   {
     title: "Second Creation",
     description: "Description of the second creation.",
-    img: path.join(__dirname, "../../public/assets/images/profilbis.jpg"),
-    dancer_name: "Dancer Two",
+    img: "profilbis.jpg",
+    dancer: "Dancer Two",
   },
 ];
 
@@ -28,7 +27,7 @@ class CreationsSeeder extends AbstractSeeder {
         title: creation.title,
         description: creation.description,
         img: creation.img,
-        dancer_name: creation.dancer_name,
+        dancer: creation.dancer,
       };
       this.insert(values);
     });

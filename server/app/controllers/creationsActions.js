@@ -1,4 +1,5 @@
 // Import access to database tables
+const path = require("path");
 const tables = require("../../database/tables");
 
 // The B of BREAD - Browse (Read All) operation
@@ -34,14 +35,21 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-  const creation = req.body;
-  try {
-    // Create a new creation
-    const insertId = await tables.creations.create(creation);
+  const { title, description, dancer } = req.body;
+  const img = req.file ? path.basename(req.file.path) : null; // Utilise seulement le nom de fichier
 
-    res.status(201).json({ insertId }); // Respond with the created creation's ID
+  try {
+    const newCreation = {
+      title,
+      description,
+      img,
+      dancer,
+    };
+
+    const insertId = await tables.creations.create(newCreation);
+    res.status(201).json({ insertId }); // Répond avec l'ID de la création créée
   } catch (err) {
-    console.error("Error in add function:", err);
+    console.error("Erreur dans la fonction add :", err);
     res.status(500).json();
     next(err);
   }

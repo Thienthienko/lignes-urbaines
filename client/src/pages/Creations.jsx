@@ -29,7 +29,13 @@ function Creations() {
               <div key={creation.id}>
                 <p>Title: {creation.title}</p>
                 <p>Description: {creation.description}</p>
-                <p>Dancer Name: {creation.dancer_name}</p>
+                <p>Dancer Name: {creation.dancer}</p>
+
+                <img
+                  className="creationsImg"
+                  src={`/img/${creation.img}`}
+                  alt=""
+                />
               </div>
             ))}
           </div>

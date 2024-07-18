@@ -8,9 +8,9 @@ function AdminPage() {
   const [values, setValues] = useState({
     title: "",
     description: "",
-    dancer_name: "",
-    img: "",
+    dancer: "",
   });
+  const [image, setImage] = useState(null);
 
   const handleInputCreate = (event) => {
     setValues((prev) => ({
@@ -19,21 +19,25 @@ function AdminPage() {
     }));
   };
 
+  const handleFileChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+
   const handleSubmitCreate = async (event) => {
     event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("description", values.description);
+    formData.append("dancer", values.dancer);
+    if (image) {
+      formData.append("image", image);
+    }
 
     try {
       const response = await fetch(`${URL}/api/creations`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: values.title,
-          description: values.description,
-          dancer_name: values.dancer_name,
-          img: values.img,
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -57,7 +61,11 @@ function AdminPage() {
       <div className="creationsMediasForm">
         <div className="creationsForm">
           <h3>Formulaire Créations</h3>
-          <form method="post" onSubmit={handleSubmitCreate}>
+          <form
+            method="post"
+            onSubmit={handleSubmitCreate}
+            encType="multipart/form-data"
+          >
             <h4>Titre</h4>
             <input
               type="text"
@@ -65,6 +73,7 @@ function AdminPage() {
               name="title"
               value={values.title}
               onChange={handleInputCreate}
+              required
             />
             <h4>Description</h4>
             <input
@@ -73,21 +82,24 @@ function AdminPage() {
               name="description"
               value={values.description}
               onChange={handleInputCreate}
+              required
             />
             <h4>Dancer Name</h4>
             <input
               type="text"
               placeholder="Dancer Name"
-              name="dancer_name"
-              value={values.dancer_name}
+              name="dancer"
+              value={values.dancer}
               onChange={handleInputCreate}
+              required
             />
+            <h4>Image</h4>
             <input
-              type="text"
-              placeholder="img"
-              name="img"
-              value={values.img}
-              onChange={handleInputCreate}
+              type="file"
+              name="image"
+              onChange={handleFileChange}
+              accept="image/*"
+              required
             />
             <button type="submit">
               <p>Sauvegarder</p>
