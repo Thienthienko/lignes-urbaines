@@ -49,7 +49,7 @@ function Inscription() {
 
         // Vérifiez le rôle de l'utilisateur
         if (userData.role === "admin") {
-          navigate("/apropos");
+          navigate("/admin");
         } else {
           navigate("/");
         }

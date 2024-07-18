@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Medias from "./pages/Medias";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
+import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/connexion",
         element: <Connexion />,
+      },
+      {
+        path: "/admin",
+        element: <AdminPage />,
       },
     ],
   },

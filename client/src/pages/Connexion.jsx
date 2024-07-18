@@ -40,7 +40,7 @@ function Connexion() {
           login(responseData.user);
 
           if (loginInfos.pseudo === "admin") {
-            navigate("/apropos");
+            navigate("/admin");
           } else {
             navigate("/");
           }
