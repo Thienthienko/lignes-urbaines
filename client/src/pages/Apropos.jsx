@@ -3,14 +3,14 @@ import MarionImg from "../assets/images/marion.jpg";
 function Apropos() {
   return (
     <div className="globalContainer">
-      <h2>Apropos</h2>
+      <h2>A propos</h2>
       <div className="principalBloc">
         <div className="marionApropos">
           <div className="divInfo">
             <img src={MarionImg} alt="Marion" />
           </div>
           <div className="divInfoText">
-            <h3>Marion Blanchot</h3>
+            <h3>Marion BLANCHOT</h3>
             <h4>DIRECTRICE ARTISTIQUE</h4>
             <p>
               Issue de formation moderne et contemporaine, Marion trouve

@@ -4,6 +4,8 @@ import { useUserContext } from "./contexts/UserContext";
 
 import Profil from "../assets/images/profil.png";
 import Logo from "../assets/images/logo.png";
+import Logout from "../assets/images/logout.png";
+import Admin from "../assets/images/admin.png";
 import "../App.css";
 
 function Navbar() {
@@ -91,24 +93,26 @@ function Navbar() {
             Contact
           </Link>
         </li>
-        {user ? (
-          <li>
-            <button
-              type="button"
-              onClick={handleLogout}
-              onKeyDown={handleKeyDown}
-              tabIndex="0"
-            >
-              Déconnexion
-            </button>
-          </li>
+
+        {user !== "" ? (
+          <>
+            <li>
+              <Link to="/admin" onKeyDown={handleKeyDown}>
+                <img className="logo" src={Admin} alt="profil" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" onClick={handleLogout} onKeyDown={handleKeyDown}>
+                <img className="logo" src={Logout} alt="profil" />
+              </Link>
+            </li>
+          </>
         ) : (
           <li>
             <Link
               to="/inscription"
               onClick={toggleMenu}
               onKeyDown={handleKeyDown}
-              tabIndex="0"
             >
               <img className="logo" src={Profil} alt="profil" />
             </Link>

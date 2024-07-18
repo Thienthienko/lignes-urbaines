@@ -72,20 +72,18 @@ const edit = async (req, res, next) => {
     next(err);
   }
 };
-
+// The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
+  // Extract the item id from the request body
+  const { id } = req.body;
   try {
-    // Delete the specified creation
-    const result = await tables.creations.delete(req.params.id);
+    // Delete the news from the database
+    const deletedCreations = await tables.creations.delete(id);
 
-    if (result.affectedRows === 0) {
-      res.sendStatus(404); // If no rows were deleted, the creation was not found
-    } else {
-      res.sendStatus(204); // No content to send back, but the request was successful
-    }
+    // Respond with HTTP 200 (OK) and the response data
+    res.status(200).json({ deletedCreations });
   } catch (err) {
-    console.error("Error in delete function:", err);
-    res.status(500).json();
+    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

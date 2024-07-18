@@ -16,6 +16,6 @@ router.get("/", browse);
 router.get("/:id", read);
 router.post("/", upload.single("image"), add);
 router.put("/:id", edit);
-router.delete("/:id", destroy);
+router.delete("/delete", destroy);
 
 module.exports = router;

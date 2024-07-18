@@ -51,7 +51,7 @@ function Inscription() {
         if (userData.role === "admin") {
           navigate("/admin");
         } else {
-          navigate("/");
+          navigate("/connexion");
         }
       } catch (err) {
         console.error("Erreur lors de la requête d'inscription:", err);

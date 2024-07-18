@@ -106,6 +106,10 @@ function AdminPage() {
     }
   };
 
+  // State pour stocker les créations
+
+  // Fonction pour supprimer une création
+
   return (
     <div className="globalContainer">
       <h2>Admin</h2>

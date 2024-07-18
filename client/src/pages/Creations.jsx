@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useUserContext } from "../components/contexts/UserContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 function Creations() {
   const [creations, setCreations] = useState([]);
+  const { user } = useUserContext();
 
   useEffect(() => {
     const fetchCreations = async () => {
@@ -18,6 +20,31 @@ function Creations() {
 
     fetchCreations();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`${URL}/api/creations/delete`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      });
+
+      if (response.status === 200) {
+        console.info("L'opération a réussie", id);
+        // Mettre à jour l'état local pour supprimer l'élément supprimé
+        setCreations((prevCreations) =>
+          prevCreations.filter((creation) => creation.id !== id)
+        );
+      } else {
+        console.info("L'opération a échouée");
+      }
+    } catch (err) {
+      console.error(err);
+      console.info("Une erreur s'est produite");
+    }
+  };
 
   return (
     <div className="globalContainer">
@@ -34,11 +61,18 @@ function Creations() {
                 />
               </div>
               <div className="secondSection">
-                <p className="creationText">Title: {creation.title}</p>
-                <p className="creationText">
-                  Description: {creation.description}
-                </p>
-                <p className="creationText">Dancer Name: {creation.dancer}</p>
+                <p className="creationTextTitre">{creation.title}</p>
+                <p className="creationTextDesc">{creation.description}</p>
+                <p className="creationTextDancer">{creation.dancer}</p>
+                {user && (
+                  <button
+                    type="button"
+                    className="deleteButton"
+                    onClick={() => handleDelete(creation.id)}
+                  >
+                    Supprimer
+                  </button>
+                )}
               </div>
             </section>
           ))}
