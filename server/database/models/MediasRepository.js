@@ -53,11 +53,11 @@ class MediasRepository extends AbstractRepository {
 
   async delete(id) {
     const [result] = await this.database.query(
-      `DELETE FROM ${this.table} WHERE id = ?`,
+      `delete from ${this.table} where id = ?`,
       [id]
     );
 
-    return result.affectedRows;
+    return result;
   }
 }
 

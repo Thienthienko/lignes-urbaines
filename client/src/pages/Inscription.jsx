@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Form, useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Validation from "./inscriptionValidation";
 
 const URL = import.meta.env.VITE_API_URL;
 
 function Inscription() {
+  // Toastify
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
+
+  // Formulaire
   const [values, setValues] = useState({
     pseudo: "",
     email: "",
@@ -12,9 +19,13 @@ function Inscription() {
     role: "",
   });
 
+  // Navigation
   const navigate = useNavigate();
+
+  // Gestion des erreurs
   const [errors, setErrors] = useState({});
 
+  // Mise à jour des valeurs
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
@@ -42,7 +53,7 @@ function Inscription() {
             role: values.role,
           }),
         });
-        if (!response.ok) {
+        if (response.status === 200) {
           throw new Error("Erreur lors de l'inscription");
         }
         const userData = await response.json();
@@ -50,11 +61,14 @@ function Inscription() {
         // Vérifiez le rôle de l'utilisateur
         if (userData.role === "admin") {
           navigate("/admin");
+          notifySuccess(`Bienvenue !`);
         } else {
-          navigate("/");
+          navigate("/connexion");
+          notifySuccess("Inscription réussie !");
         }
       } catch (err) {
         console.error("Erreur lors de la requête d'inscription:", err);
+        notifyError("Une erreur est survenue lors de l'inscription");
       }
     }
   };
@@ -62,11 +76,8 @@ function Inscription() {
   return (
     <div className="globalContainer">
       <h2>Inscription</h2>
-      <Form method="post" onSubmit={handleSubmit}>
+      <Form method="post" onSubmit={handleSubmit} className="inscriptionForm">
         <div className="row formRow">
-          <label htmlFor="pseudo">
-            <p>Pseudo</p>
-          </label>
           <div className="firstNameInput">
             <input
               type="text"
@@ -79,9 +90,6 @@ function Inscription() {
           </div>
         </div>
         <div className="row formRow">
-          <label htmlFor="email">
-            <p>Adresse email</p>
-          </label>
           <div className="emailInput">
             <input
               type="email"
@@ -94,9 +102,6 @@ function Inscription() {
           </div>
         </div>
         <div className="row formRow">
-          <label htmlFor="password">
-            <p>Mot de passe</p>
-          </label>
           <div className="emailInput">
             <input
               type="password"
@@ -108,8 +113,10 @@ function Inscription() {
             {errors.password !== undefined && <span>{errors.password}</span>}
           </div>
         </div>
-        <div className="submitButton">
-          <button type="submit">S'inscrire</button>
+        <div className="buttonBloc">
+          <button className="buttonCreationBlack" type="submit">
+            <p>S'inscrire</p>
+          </button>
         </div>
       </Form>
       <Link to="/connexion">

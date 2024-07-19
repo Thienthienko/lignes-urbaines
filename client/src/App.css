@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -17,9 +19,15 @@ h2 {
 }
 
 h3 {
+  font-weight: bold;
   color: black;
 }
 
+h4 {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
 .mainAccueil {
   width: 100%;
 }
@@ -74,6 +82,15 @@ video {
 .logo {
   width: 100%;
 }
+.container {
+  height: 100vh;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 /* ------------------------------------------NAVBAR ------------------------------------------*/
 
@@ -108,6 +125,7 @@ video {
 .navLinks {
   list-style: none;
   display: flex;
+
   margin: 0;
   padding: 0;
 }
@@ -127,25 +145,50 @@ video {
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
+  align-items: center;
 }
 
-/* ------------------------------------------NAVBAR ------------------------------------------*/
+@media (max-width: 768px) {
+  .navBarContent {
+    flex-direction: column;
+  }
+  .hamburger {
+    display: block;
+  }
 
-.container {
-  height: 100vh;
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+  }
+
+  .navLinks.open {
+    display: flex;
+  }
+
+  .navLinks li {
+    margin: 0;
+    padding: 1rem 0;
+  }
+
+  .navLinks li:first-child {
+    border-top: none;
+  }
+
+  .logo {
+    display: none;
+  }
 }
+/* ------------------------------------------ A propos ------------------------------------------*/
 
 .marionApropos {
   display: flex;
-  justify-content: space-evenly;
-
+  flex-direction: row;
+  justify-content: center;
   width: 100vw;
+  margin-bottom: 30px;
 }
 
 .marionApropos img {
@@ -154,22 +197,36 @@ video {
 }
 
 .divInfo {
+  display: flex;
   width: 300px;
 }
 .divInfoText {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: left;
   padding: 0px 30px 0px 30px;
   max-width: 400px;
 }
 
-.divInfoText p,
-h3,
-h4 {
+.divInfoText p {
   color: black;
   text-align: left;
   max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .marionApropos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
 }
 
 .mediasFlexContainer {
@@ -199,17 +256,24 @@ h4 {
   flex-direction: column;
   border: solid black 2px;
   background-color: black;
+  justify-content: center;
   text-align: left;
-  width: 500px;
+  max-width: 500px;
   height: 450px;
   padding-left: 30px;
+  padding-right: 30px;
   border-top-left-radius: 10px 10px;
   border-bottom-left-radius: 10px 10px;
 }
 
+.leftBloc p {
+  margin-bottom: 7px;
+}
+
 .rightBloc {
+  text-align: center;
   border: solid black 2px;
-  width: 500px;
+  max-width: 500px;
   height: 450px;
   border-top-right-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
@@ -223,11 +287,11 @@ form {
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .formRow {
-  margin: 10px 20px 20px 10px;
+  margin: 10px 10px 10px 10px;
 }
 .form-control {
   max-width: 500px;
@@ -272,10 +336,57 @@ form {
   width: 100%;
 }
 
+.createForm {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inscriptionForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inscriptionForm input {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.connexionForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.connexionForm input {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.leftMediasForm {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leftMediasForm h4 {
+  color: white;
+  margin-bottom: 0;
+}
+
+.createForm h4 {
+  color: white;
+  margin-bottom: 0;
+}
+
 .creationsMediasForm {
   width: 100vw;
-  height: 100vh;
-  border: solid violet 2px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -283,9 +394,10 @@ form {
 
 .creationsForm {
   width: 400px;
-  height: 400px;
-  border: solid red 2px;
-  text-align: center;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .creationsBloc {
@@ -297,18 +409,19 @@ form {
 
 .creationsSection {
   width: 100vw;
+  min-height: 400px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .principalSection {
   display: flex;
   flex-direction: row;
-  background-color: aqua;
-  width: 300px;
+  justify-content: center;
+  width: 500px;
   margin: 0px 20px 0px 20px;
 }
 
@@ -319,18 +432,68 @@ form {
 .secondSection {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  align-items: start;
+  width: 500px;
   margin: 0px 20px 0px 20px;
 }
 
-.creationText {
+p.creationTextTitre {
   color: black;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+p.creationTextDesc {
+  color: black;
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+p.creationTextDancer {
+  color: black;
+  font-size: 10px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.textAreaInput {
+  max-width: 250px;
+  min-height: 20px;
+  max-height: 300px;
 }
 .mediasForm {
   width: 400px;
-  height: 400px;
-  border: solid blue 2px;
-  text-align: center;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonBloc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonCreationBlack {
+  background-color: black;
+}
+
+.buttonCreationBlack p {
+  color: white;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 20px 0px 20px 0px;
 }
 
 footer {
@@ -361,41 +524,46 @@ footer {
   flex-direction: row;
   gap: 2rem;
   justify-content: center;
+  margin: 10px 0px 10px 0px;
 }
+
 .iconContact img {
-  height: 50px;
+  height: 30px;
+}
+
+.contactTitle {
+  font-size: larger;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .navLinks {
-    display: none;
+  .leftRightContainer {
     flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: black;
+    min-height: 100vh;
   }
 
-  .navLinks.open {
+  form {
+    flex-direction: column;
+  }
+  .leftBloc {
     display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    background-color: black;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-left-radius: 0px 0px;
   }
 
-  .navLinks li {
-    margin: 0;
-    padding: 1rem 0;
+  .rightBloc {
+    text-align: center;
+    border: solid black 2px;
+    border-top-right-radius: 0px 0px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    min-height: 650px;
   }
-
-  .navLinks li:first-child {
-    border-top: none;
-  }
-
-  .logo {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 761px) and (max-width: 960px) {
 }

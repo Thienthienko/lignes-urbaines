@@ -43,6 +43,15 @@ class CreationsRepository extends AbstractRepository {
 
     return rows;
   }
+
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return result;
+  }
 }
 //   // Mise à jour d'une création
 //   async update(id, updatedFields) {

@@ -10,7 +10,7 @@ function Contact() {
         <div className="principalBloc">
           <div className="leftRightContainer">
             <div className="leftBloc">
-              <p>Contact</p>
+              <p className="contactTitle">Contact</p>
               <p>Un projet ? Discutons</p>
               <p>+33 6 14 83 89 97</p>
               <p>compagnies.lignes.urbaines@gmail.com</p>

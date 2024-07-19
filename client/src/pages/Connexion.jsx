@@ -1,19 +1,32 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useUserContext } from "../components/contexts/UserContext";
+import "react-toastify/dist/ReactToastify.css";
 
 function Connexion() {
+  // Toastify
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
+
+  // Navigation
   const navigate = useNavigate();
+
+  // useContext
   const { login } = useUserContext();
+
+  // Info utilisateur
   const [loginInfos, setLoginInfos] = useState({
     pseudo: "",
     password: "",
   });
 
+  // Mise à jour des infos utilisateur
   const handleLoginInfos = (e) => {
     setLoginInfos({ ...loginInfos, [e.target.name]: e.target.value });
   };
 
+  // Validation avant login
   const handleLogin = async (e) => {
     e.preventDefault();
     if (loginInfos.pseudo.trim() === "" || loginInfos.password.trim() === "") {
@@ -41,15 +54,19 @@ function Connexion() {
 
           if (loginInfos.pseudo === "admin") {
             navigate("/admin");
+            notifySuccess(`Bienvenue my Lord`);
           } else {
             navigate("/");
+            notifySuccess(`Bienvenue`);
           }
         } else {
           console.error("Utilisateur introuvable");
+          notifyError("Utilisateur introuvable");
         }
       } else {
         console.info("Login failed with status:", response.status);
         console.error("Identifiants invalides");
+        notifyError("Identifiants invalides");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -59,7 +76,7 @@ function Connexion() {
   return (
     <div className="globalContainer">
       <h2>Connexion</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="connexionForm">
         <div className="row formRow">
           <div className="firstNameInput">
             <input
@@ -82,10 +99,15 @@ function Connexion() {
             />
           </div>
         </div>
-        <div className="submitButton">
-          <button type="submit">Se connecter</button>
+        <div className="buttonBloc">
+          <button className="buttonCreationBlack" type="submit">
+            <p>Se Connecter</p>
+          </button>
         </div>
       </form>
+      <Link to="/inscription">
+        <p>Pas de compte ?</p>
+      </Link>
     </div>
   );
 }

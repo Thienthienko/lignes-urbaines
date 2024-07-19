@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const URL = import.meta.env.VITE_API_URL;
 
 function AdminPage() {
+  // Toastify
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
+
+  // Navigation
   const navigate = useNavigate();
 
-  // State pour le formulaire de Créations
+  // Formulaire de Créations
   const [creationValues, setCreationValues] = useState({
     title: "",
     description: "",
@@ -14,6 +21,7 @@ function AdminPage() {
   });
   const [creationImage, setCreationImage] = useState(null);
 
+  // Mise à jour des valeurs
   const handleInputCreate = (event) => {
     setCreationValues((prev) => ({
       ...prev,
@@ -28,11 +36,12 @@ function AdminPage() {
   const handleSubmitCreate = async (event) => {
     event.preventDefault();
 
+    // Préparation des données contenants textes et images
     const formData = new FormData();
     formData.append("title", creationValues.title);
     formData.append("description", creationValues.description);
     formData.append("dancer", creationValues.dancer);
-    if (creationImage) {
+    if (creationImage !== null) {
       formData.append("image", creationImage);
     }
 
@@ -42,13 +51,14 @@ function AdminPage() {
         body: formData,
       });
 
-      if (!response.ok) {
+      if (response.status === 200) {
         throw new Error(
           "Erreur lors de la création de la nouvelle fiche de création"
         );
       }
-
+      // Naviguer vers la page des créations après soumission réussie
       navigate("/creations");
+      notifySuccess("Ajout de créations réussi");
     } catch (err) {
       console.error(
         "Erreur lors de la requête de la création de la nouvelle fiche de création:",
@@ -57,12 +67,13 @@ function AdminPage() {
     }
   };
 
-  // State pour le formulaire de Médias
+  // Formulaire de Médias
   const [mediaValues, setMediaValues] = useState({
     title: "",
     image: null,
   });
 
+  // Mise à jour des valeurs
   const handleInputMedia = (event) => {
     setMediaValues((prev) => ({
       ...prev,
@@ -80,9 +91,10 @@ function AdminPage() {
   const handleSubmitMedia = async (event) => {
     event.preventDefault();
 
+    // Préparation des données contenants textes et images
     const formData = new FormData();
     formData.append("title", mediaValues.title);
-    if (mediaValues.image) {
+    if (mediaValues.image !== null) {
       formData.append("image", mediaValues.image);
     }
 
@@ -92,17 +104,19 @@ function AdminPage() {
         body: formData,
       });
 
-      if (!response.ok) {
+      if (response.status === 200) {
         throw new Error("Erreur lors de la création du nouveau média");
       }
 
       // Naviguer vers la page des médias après soumission réussie
       navigate("/medias");
+      notifySuccess("Ajout de médias réussi");
     } catch (err) {
       console.error(
         "Erreur lors de la requête de création du nouveau média:",
         err
       );
+      notifyError("Média non importé");
     }
   };
 
@@ -113,6 +127,7 @@ function AdminPage() {
         <div className="creationsForm">
           <h3>Formulaire Créations</h3>
           <form
+            className="createForm"
             method="post"
             onSubmit={handleSubmitCreate}
             encType="multipart/form-data"
@@ -120,25 +135,23 @@ function AdminPage() {
             <h4>Titre</h4>
             <input
               type="text"
-              placeholder="Titre"
               name="title"
               value={creationValues.title}
               onChange={handleInputCreate}
               required
             />
             <h4>Description</h4>
-            <input
+            <textarea
+              className="textAreaInput"
               type="text"
-              placeholder="Description"
               name="description"
               value={creationValues.description}
               onChange={handleInputCreate}
               required
             />
-            <h4>Dancer Name</h4>
+            <h4>Interprètes</h4>
             <input
               type="text"
-              placeholder="Dancer Name"
               name="dancer"
               value={creationValues.dancer}
               onChange={handleInputCreate}
@@ -152,14 +165,17 @@ function AdminPage() {
               accept="image/*"
               required
             />
-            <button type="submit">
-              <p>Sauvegarder</p>
-            </button>
+            <div className="buttonBloc">
+              <button className="buttonCreation" type="submit">
+                <p>Sauvegarder</p>
+              </button>
+            </div>
           </form>
         </div>
         <div className="mediasForm">
           <h3>Formulaire Médias</h3>
           <form
+            className="leftMediasForm"
             method="post"
             onSubmit={handleSubmitMedia}
             encType="multipart/form-data"
@@ -167,7 +183,6 @@ function AdminPage() {
             <h4>Titre</h4>
             <input
               type="text"
-              placeholder="Titre"
               name="title"
               value={mediaValues.title}
               onChange={handleInputMedia}
@@ -181,9 +196,11 @@ function AdminPage() {
               accept="image/*"
               required
             />
-            <button type="submit">
-              <p>Sauvegarder</p>
-            </button>
+            <div className="buttonBloc">
+              <button className="buttonCreation" type="submit">
+                <p>Sauvegarder</p>
+              </button>
+            </div>
           </form>
         </div>
       </div>
