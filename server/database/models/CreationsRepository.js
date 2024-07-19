@@ -18,8 +18,6 @@ class CreationsRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  // Les opérations de lecture
-
   async read(id) {
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE id = ?`,
@@ -53,34 +51,5 @@ class CreationsRepository extends AbstractRepository {
     return result;
   }
 }
-//   // Mise à jour d'une création
-//   async update(id, updatedFields) {
-//     const fields = Object.keys(updatedFields)
-//       .map((field) => `${field} = ?`)
-//       .join(", ");
-//     const values = Object.values(updatedFields);
-
-//     const [result] = await this.database.query(
-//       `
-//       UPDATE ${this.table}
-//       SET ${fields}
-//       WHERE id = ?
-//     `,
-//       [...values, id]
-//     );
-
-//     return result.affectedRows;
-//   }
-
-//   // Suppression d'une création
-//   async delete(id) {
-//     const [result] = await this.database.query(
-//       `DELETE FROM ${this.table} WHERE id = ?`,
-//       [id]
-//     );
-
-//     return result.affectedRows;
-//   }
-// }
 
 module.exports = CreationsRepository;

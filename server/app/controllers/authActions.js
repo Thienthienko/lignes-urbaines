@@ -1,14 +1,13 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
-// Import access to database tables
 const tables = require("../../database/tables");
 
 const login = async (req, res, next) => {
   try {
     console.info(req.body);
     console.info(req.body.pseudo);
-    // Fetch a specific user from the database based on the provided email
+    // Fetch l'user specifique de la BDD en fonction de son pseudo et password
     const user = await tables.user.readByPseudoWithPassword(req.body.pseudo);
     console.info(user);
     if (user === null) {
