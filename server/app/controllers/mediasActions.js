@@ -1,35 +1,24 @@
-// Import access to database tables
 const path = require("path");
 const tables = require("../../database/tables");
 
-// The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all medias from the database
     const medias = await tables.medias.readAll();
-
-    // Respond with the medias in JSON format
     res.json(medias);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific media from the database based on the provided ID
     const media = await tables.medias.read(req.params.id);
-
-    // If the media is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the media in JSON format
     if (media == null) {
       res.sendStatus(404);
     } else {
       res.json(media);
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -37,7 +26,6 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   const { title, description, dancer } = req.body;
   const img = req.file ? path.basename(req.file.path) : null; // Utilise seulement le nom de fichier
-
   try {
     const newmedia = {
       title,
@@ -45,7 +33,6 @@ const add = async (req, res, next) => {
       img,
       dancer,
     };
-
     const insertId = await tables.medias.create(newmedia);
     res.status(201).json({ insertId }); // Répond avec l'ID de la création créée
   } catch (err) {
@@ -58,13 +45,11 @@ const add = async (req, res, next) => {
 const edit = async (req, res, next) => {
   const media = req.body;
   try {
-    // Update the specified media
     const result = await tables.medias.update(req.params.id, media);
-
     if (result.affectedRows === 0) {
-      res.sendStatus(404); // If no rows were updated, the media was not found
+      res.sendStatus(404);
     } else {
-      res.sendStatus(204); // No content to send back, but the request was successful
+      res.sendStatus(204);
     }
   } catch (err) {
     console.error("Error in edit function:", err);
@@ -75,13 +60,11 @@ const edit = async (req, res, next) => {
 
 const destroy = async (req, res, next) => {
   try {
-    // Delete the specified media
     const result = await tables.medias.delete(req.params.id);
-
     if (result.affectedRows === 0) {
-      res.sendStatus(404); // If no rows were deleted, the media was not found
+      res.sendStatus(404);
     } else {
-      res.sendStatus(204); // No content to send back, but the request was successful
+      res.sendStatus(204);
     }
   } catch (err) {
     console.error("Error in delete function:", err);
@@ -90,7 +73,6 @@ const destroy = async (req, res, next) => {
   }
 };
 
-// Ready to export the controller functions
 module.exports = {
   browse,
   read,
