@@ -7,8 +7,11 @@ import Validation from "./inscriptionValidation";
 const URL = import.meta.env.VITE_API_URL;
 
 function Inscription() {
+  // Toastify
   const notifySuccess = (text) => toast.success(text);
   const notifyError = (text) => toast.error(text);
+
+  // Formulaire
   const [values, setValues] = useState({
     pseudo: "",
     email: "",
@@ -16,9 +19,13 @@ function Inscription() {
     role: "",
   });
 
+  // Navigation
   const navigate = useNavigate();
+
+  // Gestion des erreurs
   const [errors, setErrors] = useState({});
 
+  // Mise à jour des valeurs
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
@@ -46,7 +53,7 @@ function Inscription() {
             role: values.role,
           }),
         });
-        if (!response.ok) {
+        if (response.status === 200) {
           throw new Error("Erreur lors de l'inscription");
         }
         const userData = await response.json();

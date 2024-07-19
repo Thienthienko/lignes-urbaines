@@ -5,6 +5,7 @@ const URL = import.meta.env.VITE_API_URL;
 function Medias() {
   const [medias, setMedias] = useState([]);
 
+  // Récupération des Médias
   useEffect(() => {
     const fetchCreations = async () => {
       try {
@@ -18,6 +19,7 @@ function Medias() {
 
     fetchCreations();
   }, []);
+
   return (
     <div className="globalContainer">
       <h2>Médias</h2>

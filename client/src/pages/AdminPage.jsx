@@ -36,11 +36,12 @@ function AdminPage() {
   const handleSubmitCreate = async (event) => {
     event.preventDefault();
 
+    // Préparation des données contenants textes et images
     const formData = new FormData();
     formData.append("title", creationValues.title);
     formData.append("description", creationValues.description);
     formData.append("dancer", creationValues.dancer);
-    if (creationImage) {
+    if (creationImage !== null) {
       formData.append("image", creationImage);
     }
 
@@ -50,7 +51,7 @@ function AdminPage() {
         body: formData,
       });
 
-      if (!response.ok) {
+      if (response.status === 200) {
         throw new Error(
           "Erreur lors de la création de la nouvelle fiche de création"
         );
@@ -90,9 +91,10 @@ function AdminPage() {
   const handleSubmitMedia = async (event) => {
     event.preventDefault();
 
+    // Préparation des données contenants textes et images
     const formData = new FormData();
     formData.append("title", mediaValues.title);
-    if (mediaValues.image) {
+    if (mediaValues.image !== null) {
       formData.append("image", mediaValues.image);
     }
 
@@ -102,7 +104,7 @@ function AdminPage() {
         body: formData,
       });
 
-      if (!response.ok) {
+      if (response.status === 200) {
         throw new Error("Erreur lors de la création du nouveau média");
       }
 

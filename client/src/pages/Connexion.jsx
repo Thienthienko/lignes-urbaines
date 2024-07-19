@@ -26,6 +26,7 @@ function Connexion() {
     setLoginInfos({ ...loginInfos, [e.target.name]: e.target.value });
   };
 
+  // Validation avant login
   const handleLogin = async (e) => {
     e.preventDefault();
     if (loginInfos.pseudo.trim() === "" || loginInfos.password.trim() === "") {
@@ -53,7 +54,7 @@ function Connexion() {
 
           if (loginInfos.pseudo === "admin") {
             navigate("/admin");
-            notifySuccess(`Bienvenue`);
+            notifySuccess(`Bienvenue my Lord`);
           } else {
             navigate("/");
             notifySuccess(`Bienvenue`);

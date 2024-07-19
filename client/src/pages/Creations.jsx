@@ -7,6 +7,7 @@ function Creations() {
   const [creations, setCreations] = useState([]);
   const { user } = useUserContext();
 
+  // Récupération des données
   useEffect(() => {
     const fetchCreations = async () => {
       try {
@@ -21,6 +22,7 @@ function Creations() {
     fetchCreations();
   }, []);
 
+  // Envoi d'une requête Delete à l'API et mise à jour de l'état pour supprimer l'élément supprimé
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`${URL}/api/creations/delete`, {
@@ -33,7 +35,7 @@ function Creations() {
 
       if (response.status === 200) {
         console.info("L'opération a réussie", id);
-        // Mettre à jour l'état local pour supprimer l'élément supprimé
+
         setCreations((prevCreations) =>
           prevCreations.filter((creation) => creation.id !== id)
         );
