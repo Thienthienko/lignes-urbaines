@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Form, useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Validation from "./inscriptionValidation";
 
 const URL = import.meta.env.VITE_API_URL;
 
 function Inscription() {
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
   const [values, setValues] = useState({
     pseudo: "",
     email: "",
@@ -50,11 +54,14 @@ function Inscription() {
         // Vérifiez le rôle de l'utilisateur
         if (userData.role === "admin") {
           navigate("/admin");
+          notifySuccess(`Bienvenue !`);
         } else {
           navigate("/connexion");
+          notifySuccess("Inscription réussie !");
         }
       } catch (err) {
         console.error("Erreur lors de la requête d'inscription:", err);
+        notifyError("Une erreur est survenue lors de l'inscription");
       }
     }
   };

@@ -188,6 +188,7 @@ video {
   flex-direction: row;
   justify-content: center;
   width: 100vw;
+  margin-bottom: 30px;
 }
 
 .marionApropos img {
@@ -197,7 +198,6 @@ video {
 
 .divInfo {
   display: flex;
-
   width: 300px;
 }
 .divInfoText {

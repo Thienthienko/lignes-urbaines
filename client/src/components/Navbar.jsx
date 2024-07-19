@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useUserContext } from "./contexts/UserContext";
 
 import Profil from "../assets/images/profil.png";
@@ -9,6 +11,7 @@ import Admin from "../assets/images/admin.png";
 import "../App.css";
 
 function Navbar() {
+  const notifySuccess = (text) => toast.success(text);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const { user, logout } = useUserContext();
   const navigate = useNavigate();
@@ -30,6 +33,7 @@ function Navbar() {
       navigate("/");
       window.location.reload();
     }, 1000);
+    notifySuccess(`Puissons-nous, nous retrouver`);
   };
 
   return (

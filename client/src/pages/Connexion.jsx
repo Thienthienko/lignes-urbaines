@@ -1,15 +1,27 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useUserContext } from "../components/contexts/UserContext";
+import "react-toastify/dist/ReactToastify.css";
 
 function Connexion() {
+  // Toastify
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
+
+  // Navigation
   const navigate = useNavigate();
+
+  // useContext
   const { login } = useUserContext();
+
+  // Info utilisateur
   const [loginInfos, setLoginInfos] = useState({
     pseudo: "",
     password: "",
   });
 
+  // Mise à jour des infos utilisateur
   const handleLoginInfos = (e) => {
     setLoginInfos({ ...loginInfos, [e.target.name]: e.target.value });
   };
@@ -41,15 +53,19 @@ function Connexion() {
 
           if (loginInfos.pseudo === "admin") {
             navigate("/admin");
+            notifySuccess(`Bienvenue`);
           } else {
             navigate("/");
+            notifySuccess(`Bienvenue`);
           }
         } else {
           console.error("Utilisateur introuvable");
+          notifyError("Utilisateur introuvable");
         }
       } else {
         console.info("Login failed with status:", response.status);
         console.error("Identifiants invalides");
+        notifyError("Identifiants invalides");
       }
     } catch (error) {
       console.error("Error during login:", error);

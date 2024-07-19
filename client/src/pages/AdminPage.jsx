@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const URL = import.meta.env.VITE_API_URL;
 
 function AdminPage() {
+  // Toastify
+  const notifySuccess = (text) => toast.success(text);
+  const notifyError = (text) => toast.error(text);
+
+  // Navigation
   const navigate = useNavigate();
 
-  // State pour le formulaire de Créations
+  // Formulaire de Créations
   const [creationValues, setCreationValues] = useState({
     title: "",
     description: "",
@@ -14,6 +21,7 @@ function AdminPage() {
   });
   const [creationImage, setCreationImage] = useState(null);
 
+  // Mise à jour des valeurs
   const handleInputCreate = (event) => {
     setCreationValues((prev) => ({
       ...prev,
@@ -47,8 +55,9 @@ function AdminPage() {
           "Erreur lors de la création de la nouvelle fiche de création"
         );
       }
-
+      // Naviguer vers la page des créations après soumission réussie
       navigate("/creations");
+      notifySuccess("Ajout de créations réussi");
     } catch (err) {
       console.error(
         "Erreur lors de la requête de la création de la nouvelle fiche de création:",
@@ -57,12 +66,13 @@ function AdminPage() {
     }
   };
 
-  // State pour le formulaire de Médias
+  // Formulaire de Médias
   const [mediaValues, setMediaValues] = useState({
     title: "",
     image: null,
   });
 
+  // Mise à jour des valeurs
   const handleInputMedia = (event) => {
     setMediaValues((prev) => ({
       ...prev,
@@ -98,17 +108,15 @@ function AdminPage() {
 
       // Naviguer vers la page des médias après soumission réussie
       navigate("/medias");
+      notifySuccess("Ajout de médias réussi");
     } catch (err) {
       console.error(
         "Erreur lors de la requête de création du nouveau média:",
         err
       );
+      notifyError("Média non importé");
     }
   };
-
-  // State pour stocker les créations
-
-  // Fonction pour supprimer une création
 
   return (
     <div className="globalContainer">
