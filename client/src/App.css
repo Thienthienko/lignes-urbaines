@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 body {
   font-family: "Josefin Sans", sans-serif;
@@ -10,6 +11,8 @@ body {
   background-color: black;
 }
 
+/* ------------------------------------------ Titre ------------------------------------------*/
+
 h2 {
   color: black;
   margin: 20px 0px 20px 0px;
@@ -19,8 +22,11 @@ h2 {
 }
 
 h3 {
+  font-family: "Playfair Display", serif;
   font-weight: bold;
   color: black;
+  font-size: 35px;
+  margin: 0;
 }
 
 h4 {
@@ -28,6 +34,9 @@ h4 {
   margin: 0;
   padding: 0;
 }
+
+/* ------------------------------------------ Accueil ------------------------------------------*/
+
 .mainAccueil {
   width: 100%;
 }
@@ -36,6 +45,22 @@ video {
   width: 100%;
   max-height: 90vh;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .contentAccueil {
@@ -56,9 +81,9 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-
-  /* background-color: #000000cc; */
 }
+
+/* ------------------------------------------ Container Global ------------------------------------------*/
 
 .globalContainer {
   width: 100vw;
@@ -181,24 +206,11 @@ video {
     display: none;
   }
 
-  video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    object-fit: cover;
-    object-position: center;
-  }
-
   h1 {
     text-align: center;
   }
 }
+
 /* ------------------------------------------ A propos ------------------------------------------*/
 
 .marionApropos {
@@ -239,6 +251,11 @@ video {
     align-items: center;
   }
 
+  .marionApropos h3,
+  h4 {
+    text-align: center;
+  }
+
   .divInfo {
     display: flex;
     align-items: center;
@@ -246,6 +263,8 @@ video {
     width: 300px;
   }
 }
+
+/* ------------------------------------------ Medias ------------------------------------------*/
 
 .mediasFlexContainer {
   display: flex;
@@ -258,6 +277,32 @@ video {
   justify-content: center;
   width: 100vw;
 }
+
+.blocMedias {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mediasImg {
+  width: 60%;
+}
+
+.sectionMedias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mediasForm {
+  width: 400px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------------------ Contact ------------------------------------------*/
 
 .leftRightContainer {
   width: 100vw;
@@ -361,6 +406,57 @@ form {
   justify-content: center;
 }
 
+.iconContact {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  margin: 10px 0px 10px 0px;
+}
+
+.iconContact img {
+  height: 30px;
+}
+
+.contactTitle {
+  font-size: larger;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .leftRightContainer {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  form {
+    flex-direction: column;
+  }
+  .leftBloc {
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    background-color: black;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-left-radius: 0px 0px;
+  }
+
+  .rightBloc {
+    text-align: center;
+    border: solid black 2px;
+    border-top-right-radius: 0px 0px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    min-height: 650px;
+  }
+}
+
+/* ------------------------------------------ Inscription/Connexion ------------------------------------------*/
+
 .inscriptionForm {
   display: flex;
   flex-direction: column;
@@ -385,6 +481,8 @@ form {
   border-radius: 5px;
 }
 
+/* ------------------------------------------ Admin ------------------------------------------*/
+
 .leftMediasForm {
   background-color: black;
   display: flex;
@@ -404,7 +502,6 @@ form {
 
 .creationsMediasForm {
   width: 100vw;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -412,7 +509,6 @@ form {
 
 .creationsForm {
   width: 400px;
-
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -433,6 +529,12 @@ form {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .creationsSection {
+    margin-bottom: 30px;
+  }
 }
 
 .principalSection {
@@ -483,13 +585,6 @@ p.creationTextDancer {
   min-height: 20px;
   max-height: 300px;
 }
-.mediasForm {
-  width: 400px;
-
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
 
 .buttonBloc {
   display: flex;
@@ -518,70 +613,4 @@ footer {
   position: absolute;
   top: 85%;
   left: 75%;
-}
-
-.blocMedias {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-.mediasImg {
-  width: 60%;
-}
-
-.sectionMedias {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.iconContact {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: center;
-  margin: 10px 0px 10px 0px;
-}
-
-.iconContact img {
-  height: 30px;
-}
-
-.contactTitle {
-  font-size: larger;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .leftRightContainer {
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  form {
-    flex-direction: column;
-  }
-  .leftBloc {
-    display: flex;
-    flex-direction: column;
-    border: solid black 2px;
-    background-color: black;
-    justify-content: center;
-    text-align: center;
-    padding: 0px;
-    border-top-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
-    border-bottom-left-radius: 0px 0px;
-  }
-
-  .rightBloc {
-    text-align: center;
-    border: solid black 2px;
-    border-top-right-radius: 0px 0px;
-    border-bottom-left-radius: 10px 10px;
-    border-bottom-right-radius: 10px 10px;
-    min-height: 650px;
-  }
 }

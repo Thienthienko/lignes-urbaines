@@ -10,6 +10,7 @@ import Medias from "./pages/Medias";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import AdminPage from "./pages/AdminPage";
+import JeuneBallet from "./pages/JeuneBallet";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPage />,
+      },
+      {
+        path: "/jeuneballet",
+        element: <JeuneBallet />,
       },
     ],
   },
