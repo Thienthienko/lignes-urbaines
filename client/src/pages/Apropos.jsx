@@ -4,7 +4,7 @@ import LeaImg from "../assets/images/lea.jpg";
 function Apropos() {
   return (
     <div className="globalContainer">
-      <h2>A propos</h2>
+      <h2>La Compagnie</h2>
       <div className="principalBloc">
         <div className="marionApropos">
           <div className="divInfo">

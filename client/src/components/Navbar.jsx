@@ -59,12 +59,22 @@ function Navbar() {
       <ul className={`navLinks ${hamburgerOpen ? "open" : ""}`}>
         <li>
           <Link
+            to="/jeuneballet"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            Jeune Ballet
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/apropos"
             onClick={toggleMenu}
             onKeyDown={handleKeyDown}
             tabIndex="0"
           >
-            A propos
+            La Compagnie
           </Link>
         </li>
         <li>
