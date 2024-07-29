@@ -1,13 +1,14 @@
 import MarionImg from "../assets/images/marion.jpg";
 import LeaImg from "../assets/images/lea.jpg";
+import "animate.css";
 
 function Apropos() {
   return (
     <div className="globalContainer">
       <h2>La Compagnie</h2>
       <div className="principalBloc">
-        <div className="marionApropos">
-          <div className="divInfo">
+        <div className="marionApropos animate__animated animate__bounceIn">
+          <div className="divInfo ">
             <img src={MarionImg} alt="Marion" />
           </div>
           <div className="divInfoText">
@@ -25,7 +26,7 @@ function Apropos() {
             </p>
           </div>
         </div>
-        <div className="marionApropos">
+        <div className="leaApropos animate__animated animate__bounceIn">
           <div className="divInfo">
             <img src={LeaImg} alt="Lea" />
           </div>
