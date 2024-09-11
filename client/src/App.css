@@ -35,6 +35,14 @@ h4 {
   padding: 0;
 }
 
+/* ------------------------------------------ Footer ------------------------------------------*/
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 /* ------------------------------------------ Accueil ------------------------------------------*/
 
 .mainAccueil {
@@ -216,6 +224,14 @@ video {
 
 /* ------------------------------------------ A propos ------------------------------------------*/
 
+.luApropos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+}
+
 .marionApropos {
   display: flex;
   flex-direction: row;
@@ -246,6 +262,21 @@ video {
   display: flex;
   width: 300px;
 }
+
+.divInfoTextLu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 0px 50px 0px 50px;
+  width: 100vw;
+}
+
+.divInfoTextLu p {
+  color: black;
+  margin: 0px 0px 20px 0px;
+}
+
 .divInfoText {
   display: flex;
   flex-direction: column;
@@ -268,6 +299,16 @@ video {
   }
 
   .marionApropos h3,
+  h4 {
+    text-align: center;
+  }
+
+  .leaApropos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leaApropos h3,
   h4 {
     text-align: center;
   }
@@ -555,7 +596,7 @@ form {
 
 @media (max-width: 768px) {
   .creationsSection {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
   }
 }
 

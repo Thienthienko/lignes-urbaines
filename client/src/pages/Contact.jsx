@@ -1,4 +1,3 @@
-import Twitter from "../assets/images/twitter.png";
 import Instagram from "../assets/images/instagram.png";
 import Facebook from "../assets/images/facebook.png";
 
@@ -16,9 +15,20 @@ function Contact() {
               <p>compagnies.lignes.urbaines@gmail.com</p>
               <p>140 cours Emile Zola 69100 Villeurbanne</p>
               <div className="iconContact">
-                <img src={Twitter} alt="" />
-                <img src={Instagram} alt="" />
-                <img src={Facebook} alt="" />
+                <a
+                  href="https://www.instagram.com/compagnie.lignes.urbaines/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={Instagram} alt="Logo Instagram" />
+                </a>
+                <a
+                  href="https://www.facebook.com/p/Compagnie-Lignes-Urbaines-100063450177191/?paipv=0&eav=AfYHFFuKfZ8iH9A4JQPa9Z_IYp4oLPIsn5VPmgS9VRaHF3fzXfQE9_DdD8iQmHP5Y7k&_rdr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={Facebook} alt="Logo Facebook" />
+                </a>
               </div>
             </div>
             <div className="rightBloc">

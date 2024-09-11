@@ -5,8 +5,40 @@ import "animate.css";
 function Apropos() {
   return (
     <div className="globalContainer">
-      <h2>La Compagnie</h2>
+      <h2>LA COMPAGNIE</h2>
       <div className="principalBloc">
+        <div className="luApropos animate__animated animate__bounceIn">
+          <div className="divInfoTextLu">
+            <p>
+              Fondée en novembre 2014 par Marion Blanchot, Lignes Urbaines est
+              dans un premier temps une compagnie de danse visant à promouvoir
+              le métissage des cultures à travers l’audace et le questionnement
+              des acquis. L'intention est désormais de s’ouvrir à la
+              collaboration interdisciplinaire, et de faire du lien humain une
+              ressource principale.
+            </p>
+            <p>
+              Créations chorégraphiques, projets audiovisuels, transmission
+              pédagogique, sensibilisation à travers la rencontre entre la danse
+              et le reste.
+            </p>
+            <p>
+              " J'aimerais mettre en relief le langage des cultures ainsi que
+              leur capacité à être expérimentées de manière variée et
+              personnelle, dans le respect de leur authenticité et de leur
+              essence. Aller à la croisée des chemins, à la recherche d’un
+              propos combiné, un double point de vue perpétuel qui ouvre le
+              champ des possibles au-delà des codes inconsciemment instaurés.
+              Permettre un échange qui puisse porter les valeurs profondes de
+              ces arts qui méritent un regard élargi, tout en restant fidèle à
+              leur quintessence."
+            </p>
+            <p>
+              Lignes Urbaines se veut donc un point de passage, un esprit de
+              respect et une curiosité furieuse.
+            </p>
+          </div>
+        </div>
         <div className="marionApropos animate__animated animate__bounceIn">
           <div className="divInfo ">
             <img src={MarionImg} alt="Marion" />
