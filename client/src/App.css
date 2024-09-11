@@ -41,6 +41,14 @@ h5 {
   padding: 0;
 }
 
+span,
+ul,
+li {
+  color: black;
+  list-style: none;
+  padding: 0;
+}
+
 /* ------------------------------------------ Footer ------------------------------------------*/
 
 footer {
@@ -225,6 +233,34 @@ video {
 
   h1 {
     text-align: center;
+  }
+}
+
+/* ------------------------------------------ Jeune Ballet ------------------------------------------*/
+.containerMois {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin: 0px 30px 30px 30px;
+  border: solid black 2px;
+}
+.mois {
+  text-align: center;
+}
+
+.divInfoTextLuMois {
+  text-align: left;
+  width: 200px;
+}
+
+.blocMois {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .blocMois {
+    flex-direction: column;
   }
 }
 

@@ -12,6 +12,10 @@ import LucienMImg from "../assets/images/lucienMLesGens.jpg";
 import LukasMImg from "../assets/images/lukasMLesGens.jpg";
 import CarlaMImg from "../assets/images/carlaLesGens.jpg";
 import SachaNImg from "../assets/images/sachaNLesGens.jpg";
+import JeromeOImg from "../assets/images/jeromeOLesGens.jpg";
+import EvaYImg from "../assets/images/evaYLesGens.jpg";
+import SarahZImg from "../assets/images/sarahZLesGens.jpg";
+import CamilleDImg from "../assets/images/camilleDLesGens.jpg";
 import "animate.css";
 
 function LesGens() {
@@ -88,6 +92,26 @@ function LesGens() {
           <img src={SachaNImg} alt="Sacha" />
           <h4>SACHA NÉEL</h4>
           <h5>Danseuse interprète - Profil Bis</h5>
+        </div>
+        <div className="imgLesGens">
+          <img src={JeromeOImg} alt="Jérome" />
+          <h4>JÉROME OUSSOU</h4>
+          <h5>Danseur interprète - 130 Yens</h5>
+        </div>
+        <div className="imgLesGens">
+          <img src={EvaYImg} alt="Eva" />
+          <h4>EVA YAMANI</h4>
+          <h5>Traceuse interprète - IKO</h5>
+        </div>
+        <div className="imgLesGens">
+          <img src={SarahZImg} alt="Sarah" />
+          <h4>SARAH ZIMMERMANN</h4>
+          <h5>Danseuse interprète - Hunimal - 130 Yens</h5>
+        </div>
+        <div className="imgLesGens">
+          <img src={CamilleDImg} alt="Camille" />
+          <h4>CAMILLE DUCATEL</h4>
+          <h5>Danseuse interprète - Hunimal</h5>
         </div>
       </div>
     </div>

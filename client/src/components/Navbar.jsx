@@ -59,32 +59,12 @@ function Navbar() {
       <ul className={`navLinks ${hamburgerOpen ? "open" : ""}`}>
         <li>
           <Link
-            to="/jeuneballet"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            Jeune Ballet
-          </Link>
-        </li>
-        <li>
-          <Link
             to="/apropos"
             onClick={toggleMenu}
             onKeyDown={handleKeyDown}
             tabIndex="0"
           >
             La Compagnie
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/lesgens"
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            tabIndex="0"
-          >
-            Les Gens
           </Link>
         </li>
         <li>
@@ -97,6 +77,37 @@ function Navbar() {
             Créations
           </Link>
         </li>
+        <li>
+          <Link
+            to="/jeuneballet"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            Jeune Ballet
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/ikigai"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            Battle Ikigai
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/lesgens"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            Les Gens
+          </Link>
+        </li>
+
         <li>
           <Link
             to="/medias"
