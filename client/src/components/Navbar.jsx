@@ -79,6 +79,16 @@ function Navbar() {
         </li>
         <li>
           <Link
+            to="/lesgens"
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex="0"
+          >
+            Les Gens
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/creations"
             onClick={toggleMenu}
             onKeyDown={handleKeyDown}

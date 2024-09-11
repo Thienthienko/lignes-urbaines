@@ -4,7 +4,7 @@ import Facebook from "../assets/images/facebook.png";
 function Contact() {
   return (
     <div className="globalContainer">
-      <h2>Contact</h2>
+      <h2>CONTACT</h2>
       <div>
         <div className="principalBloc">
           <div className="leftRightContainer">

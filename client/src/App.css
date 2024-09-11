@@ -35,6 +35,12 @@ h4 {
   padding: 0;
 }
 
+h5 {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
 /* ------------------------------------------ Footer ------------------------------------------*/
 
 footer {
@@ -103,7 +109,7 @@ video {
 
 .principalBloc {
   width: 100vw;
-  min-height: 500px;
+
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -267,8 +273,8 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
-  padding: 0px 50px 0px 50px;
+  text-align: justify;
+  padding: 0px 180px 0px 180px;
   width: 100vw;
 }
 
@@ -282,7 +288,7 @@ video {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 0px 30px 0px 30px;
+  padding: 0px 20px 0px 20px;
   max-width: 400px;
 }
 
@@ -290,6 +296,12 @@ video {
   color: black;
   text-align: left;
   max-width: 400px;
+}
+
+.marionLea {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 768px) {
@@ -319,6 +331,30 @@ video {
     justify-content: center;
     width: 300px;
   }
+
+  .divInfoTextLu {
+    padding: 0px 80px 0px 80px;
+  }
+}
+/* ------------------------------------------ Les gens ------------------------------------------*/
+
+.boxLesGens {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: start;
+  width: 100vw;
+}
+
+.imgLesGens {
+  text-align: center;
+  margin: 5px 5px 50px 5px;
+  /* border: solid black 2px; */
+}
+
+.imgLesGens img {
+  width: 80%;
 }
 
 /* ------------------------------------------ Medias ------------------------------------------*/
