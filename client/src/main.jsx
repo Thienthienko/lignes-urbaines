@@ -11,6 +11,8 @@ import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import AdminPage from "./pages/AdminPage";
 import JeuneBallet from "./pages/JeuneBallet";
+import LesGens from "./pages/LesGens";
+import Ikigai from "./pages/Ikigai";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/apropos",
         element: <Apropos />,
+      },
+      {
+        path: "/ikigai",
+        element: <Ikigai />,
+      },
+      {
+        path: "/lesgens",
+        element: <LesGens />,
       },
       {
         path: "/creations",

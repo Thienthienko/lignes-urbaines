@@ -1,4 +1,4 @@
-import videoBg from "../assets/images/videoBg2.mp4";
+import videoBg from "../assets/images/videoBg.mp4";
 
 function Accueil() {
   return (

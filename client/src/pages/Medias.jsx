@@ -22,7 +22,7 @@ function Medias() {
 
   return (
     <div className="globalContainer">
-      <h2>Médias</h2>
+      <h2>MÉDIAS</h2>
 
       <div className="principalBloc">
         <div className="mediasFlexContainer">

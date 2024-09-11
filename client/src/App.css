@@ -35,6 +35,28 @@ h4 {
   padding: 0;
 }
 
+h5 {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+span,
+ul,
+li {
+  color: black;
+  list-style: none;
+  padding: 0;
+}
+
+/* ------------------------------------------ Footer ------------------------------------------*/
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 /* ------------------------------------------ Accueil ------------------------------------------*/
 
 .mainAccueil {
@@ -80,7 +102,6 @@ video {
   top: 10%;
   left: 0;
   width: 100%;
-  height: 100%;
 }
 
 /* ------------------------------------------ Container Global ------------------------------------------*/
@@ -96,7 +117,7 @@ video {
 
 .principalBloc {
   width: 100vw;
-  min-height: 500px;
+
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -174,6 +195,10 @@ video {
 }
 
 @media (max-width: 768px) {
+  .navBar {
+    padding: 0;
+  }
+
   .navBarContent {
     flex-direction: column;
   }
@@ -211,7 +236,43 @@ video {
   }
 }
 
+/* ------------------------------------------ Jeune Ballet ------------------------------------------*/
+.containerMois {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin: 0px 30px 30px 30px;
+  border: solid black 2px;
+}
+.mois {
+  text-align: center;
+}
+
+.divInfoTextLuMois {
+  text-align: left;
+  width: 200px;
+}
+
+.blocMois {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .blocMois {
+    flex-direction: column;
+  }
+}
+
 /* ------------------------------------------ A propos ------------------------------------------*/
+
+.luApropos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+}
 
 .marionApropos {
   display: flex;
@@ -226,16 +287,44 @@ video {
   margin-top: 18.72px;
 }
 
+.leaApropos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+}
+
+.leaApropos img {
+  width: 100%;
+  margin-top: 18.72px;
+}
+
 .divInfo {
   display: flex;
   width: 300px;
 }
+
+.divInfoTextLu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  padding: 0px 180px 0px 180px;
+  width: 100vw;
+}
+
+.divInfoTextLu p {
+  color: black;
+  margin: 0px 0px 20px 0px;
+}
+
 .divInfoText {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 0px 30px 0px 30px;
+  padding: 0px 20px 0px 20px;
   max-width: 400px;
 }
 
@@ -243,6 +332,12 @@ video {
   color: black;
   text-align: left;
   max-width: 400px;
+}
+
+.marionLea {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 768px) {
@@ -256,12 +351,46 @@ video {
     text-align: center;
   }
 
+  .leaApropos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leaApropos h3,
+  h4 {
+    text-align: center;
+  }
+
   .divInfo {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 300px;
   }
+
+  .divInfoTextLu {
+    padding: 0px 80px 0px 80px;
+  }
+}
+/* ------------------------------------------ Les gens ------------------------------------------*/
+
+.boxLesGens {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: start;
+  width: 100vw;
+}
+
+.imgLesGens {
+  text-align: center;
+  margin: 5px 5px 50px 5px;
+  /* border: solid black 2px; */
+}
+
+.imgLesGens img {
+  width: 80%;
 }
 
 /* ------------------------------------------ Medias ------------------------------------------*/
@@ -300,6 +429,12 @@ video {
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+/* ------------------------------------------ Jeune Ballet ------------------------------------------*/
+
+.afficheJb {
+  max-height: 500px;
 }
 
 /* ------------------------------------------ Contact ------------------------------------------*/
@@ -533,7 +668,7 @@ form {
 
 @media (max-width: 768px) {
   .creationsSection {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
   }
 }
 
