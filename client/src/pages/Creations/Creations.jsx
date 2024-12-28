@@ -129,6 +129,7 @@ function Creations() {
                   </em>
                 </p>
                 <hr className="custom-line" />
+
                 <Link className="moreAbout" to="/hunimal">
                   En savoir plus
                 </Link>
