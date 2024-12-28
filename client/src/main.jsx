@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Accueil from "./pages/Accueil";
 import Apropos from "./pages/Apropos";
-import Creations from "./pages/Creations";
+import Creations from "./pages/Creations/Creations";
 import Contact from "./pages/Contact";
 import Medias from "./pages/Medias";
 import Inscription from "./pages/Inscription";
@@ -13,6 +13,10 @@ import AdminPage from "./pages/AdminPage";
 import JeuneBallet from "./pages/JeuneBallet";
 import LesGens from "./pages/LesGens";
 import Ikigai from "./pages/Ikigai";
+import Iko from "./pages/Creations/SousCreations/Iko";
+import ProfilBis from "./pages/Creations/SousCreations/ProfilsBis";
+import Yens from "./pages/Creations/SousCreations/Yens";
+import Hunimal from "./pages/Creations/SousCreations/Hunimal";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +41,22 @@ const router = createBrowserRouter([
       {
         path: "/creations",
         element: <Creations />,
+      },
+      {
+        path: "/iko",
+        element: <Iko />,
+      },
+      {
+        path: "/profilbis",
+        element: <ProfilBis />,
+      },
+      {
+        path: "/yens",
+        element: <Yens />,
+      },
+      {
+        path: "/hunimal",
+        element: <Hunimal />,
       },
       {
         path: "/contact",

@@ -1,41 +1,44 @@
-import { useEffect, useState } from "react";
-
-const URL = import.meta.env.VITE_API_URL;
+import Footer from "../components/Footer";
+import profilBisMedia1 from "../assets/images/profilBisMedia1.jpg";
+import profilBisMedia2 from "../assets/images/profilBisMedia2.jpg";
+import ikigaiMedia1 from "../assets/images/ikigaiMedia1.jpg";
+import ikigaiMedia2 from "../assets/images/ikigaiMedia2.jpg";
+import Navbar from "../components/Navbar";
 
 function Medias() {
-  const [medias, setMedias] = useState([]);
-
-  // Récupération des Médias
-  useEffect(() => {
-    const fetchCreations = async () => {
-      try {
-        const response = await fetch(`${URL}/api/medias`);
-        const data = await response.json();
-        setMedias(data);
-      } catch (err) {
-        console.error("Error fetching creations:", err);
-      }
-    };
-
-    fetchCreations();
-  }, []);
-
   return (
-    <div className="globalContainer">
-      <h2>MÉDIAS</h2>
+    <div>
+      <Navbar />
+      <div className="page-Container">
+        <h2>
+          <span>GALLERIE</span>
+        </h2>
 
-      <div className="principalBloc">
         <div className="mediasFlexContainer">
-          <div className="mediasFlex">
-            {medias.map((media) => (
-              <div key={media.id} className="blocMedias">
-                <div className="sectionMedias">
-                  <h4>{media.title}</h4>
-                  <img className="mediasImg" src={`/img/${media.img}`} alt="" />
-                </div>
-              </div>
-            ))}
+          {/* Grande Image */}
+          <img src={profilBisMedia1} alt="Profil Bis" />
+
+          {/* Groupe de Petites Images */}
+          <div className="mediaGroup">
+            <img src={profilBisMedia2} alt="Profil Bis" />
+            <img src={ikigaiMedia1} alt="Ikigai Battle" />
           </div>
+
+          {/* Autres Médias */}
+          <img src={ikigaiMedia2} alt="Ikigai Battle" />
+
+          {/* Une autre Grande Image */}
+          <img src={profilBisMedia1} alt="Profil Bis" />
+
+          {/* Un autre Groupe de Petites Images */}
+          <div className="mediaGroup">
+            <img src={profilBisMedia2} alt="Profil Bis" />
+            <img src={ikigaiMedia1} alt="Ikigai Battle" />
+          </div>
+        </div>
+
+        <div className="wrapperFooter">
+          <Footer />
         </div>
       </div>
     </div>

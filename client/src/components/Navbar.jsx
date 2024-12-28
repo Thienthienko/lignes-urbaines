@@ -1,20 +1,20 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useUserContext } from "./contexts/UserContext";
+// import { toast } from "react-toastify";
+// import { useUserContext } from "./contexts/UserContext";
 
-import Profil from "../assets/images/profil.png";
+// import Profil from "../assets/images/profil.png";
+// import Logout from "../assets/images/logout.png";
+// import Admin from "../assets/images/admin.png";
 import Logo from "../assets/images/logo.png";
-import Logout from "../assets/images/logout.png";
-import Admin from "../assets/images/admin.png";
 import "../App.css";
 
 function Navbar() {
-  const notifySuccess = (text) => toast.success(text);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
-  const { user, logout } = useUserContext();
-  const navigate = useNavigate();
+  // const notifySuccess = (text) => toast.success(text);
+  // const { user, logout } = useUserContext();
+  // const navigate = useNavigate();
 
   const toggleMenu = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -26,15 +26,15 @@ function Navbar() {
     }
   };
 
-  const handleLogout = async () => {
-    logout(false);
-    localStorage.removeItem("user");
-    setTimeout(() => {
-      navigate("/");
-      window.location.reload();
-    }, 1000);
-    notifySuccess(`Puissons-nous, nous retrouver`);
-  };
+  // const handleLogout = async () => {
+  //   logout(false);
+  //   localStorage.removeItem("user");
+  //   setTimeout(() => {
+  //     navigate("/");
+  //     window.location.reload();
+  //   }, 1000);
+  //   notifySuccess(`Puissons-nous, nous retrouver`);
+  // };
 
   return (
     <nav className="navBar">
@@ -94,7 +94,7 @@ function Navbar() {
             onKeyDown={handleKeyDown}
             tabIndex="0"
           >
-            Battle Ikigai
+            Battle Ikigaï
           </Link>
         </li>
         <li>
@@ -115,7 +115,7 @@ function Navbar() {
             onKeyDown={handleKeyDown}
             tabIndex="0"
           >
-            Médias
+            Gallerie
           </Link>
         </li>
         <li>
@@ -128,34 +128,36 @@ function Navbar() {
             Contact
           </Link>
         </li>
-
-        {user !== "" ? (
-          <>
-            <li>
-              <Link to="/admin" onKeyDown={handleKeyDown}>
-                <img className="logo" src={Admin} alt="profil" />
-              </Link>
-            </li>
-            <li>
-              <Link to="/" onClick={handleLogout} onKeyDown={handleKeyDown}>
-                <img className="logo" src={Logout} alt="profil" />
-              </Link>
-            </li>
-          </>
-        ) : (
-          <li>
-            <Link
-              to="/inscription"
-              onClick={toggleMenu}
-              onKeyDown={handleKeyDown}
-            >
-              <img className="logo" src={Profil} alt="profil" />
-            </Link>
-          </li>
-        )}
       </ul>
     </nav>
   );
 }
 
 export default Navbar;
+
+// {
+//   /* {user !== "" ? (
+//   <>
+//     <li>
+//       <Link to="/admin" onKeyDown={handleKeyDown}>
+//         <img className="logo" src={Admin} alt="profil" />
+//       </Link>
+//     </li>
+//     <li>
+//       <Link to="/" onClick={handleLogout} onKeyDown={handleKeyDown}>
+//         <img className="logo" src={Logout} alt="profil" />
+//       </Link>
+//     </li>
+//   </>
+// ) : (
+//   <li>
+//     <Link
+//       to="/inscription"
+//       onClick={toggleMenu}
+//       onKeyDown={handleKeyDown}
+//     >
+//       <img className="logo" src={Profil} alt="profil" />
+//     </Link>
+//   </li>
+// )} */
+// }
