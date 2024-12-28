@@ -1,5 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: inherit;
+  color: inherit;
+  font: inherit;
+}
 
 body {
   font-family: "Josefin Sans", sans-serif;
@@ -14,11 +22,37 @@ body {
 /* ------------------------------------------ Titre ------------------------------------------*/
 
 h2 {
-  color: black;
-  margin: 20px 0px 20px 0px;
-  padding: 0;
-  width: 100vw;
   text-align: center;
+  font-size: 2.8rem;
+  margin: 50px 0px;
+  color: #222;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 span {
+  background: linear-gradient(to right, #000000, #3a3a3a);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 5px;
+  background: linear-gradient(to right, #000000, #3a3a3a);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 40px;
+  }
 }
 
 h3 {
@@ -27,12 +61,14 @@ h3 {
   color: black;
   font-size: 35px;
   margin: 0;
+  margin-top: 30px;
 }
 
 h4 {
   color: black;
   margin: 0;
   padding: 0;
+  font-size: 20px;
 }
 
 h5 {
@@ -40,8 +76,9 @@ h5 {
   margin: 0;
   padding: 0;
 }
-
-span,
+p {
+  color: black;
+}
 ul,
 li {
   color: black;
@@ -49,64 +86,130 @@ li {
   padding: 0;
 }
 
+h2 span {
+  font-weight: 700;
+}
+
+h4 span {
+  font-weight: 700;
+}
+
+p span {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.custom-line {
+  border: none; /* Enlève la bordure par défaut */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  width: 50%; /* Longueur de la ligne (50% de la largeur de la page) */
+  margin: 5px 0px 5px 0px; /* Centrer la ligne avec du margin */
+}
+
+.custom-line2 {
+  border: none; /* Enlève la bordure par défaut */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  width: 100%; /* Longueur de la ligne (50% de la largeur de la page) */
+  margin: 5px 0px 5px 0px; /* Centrer la ligne avec du margin */
+}
+
+.custom-lineWhite {
+  border: none; /* Enlève la bordure par défaut */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: white; /* Couleur de la ligne */
+  width: 100%; /* Longueur de la ligne (50% de la largeur de la page) */
+  margin: 5px 0px 5px 0px; /* Centrer la ligne avec du margin */
+}
+
 /* ------------------------------------------ Footer ------------------------------------------*/
 
 footer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 5rem;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+}
+
+.wrapperFooter {
+  flex-shrink: 0; /* Empêche le footer de rétrécir et le maintient en bas */
+  margin-top: auto; /* Pousse le footer vers le bas */
 }
 
 /* ------------------------------------------ Accueil ------------------------------------------*/
-
-.mainAccueil {
-  width: 100%;
+.homeImg {
+  background: url(../src/assets/images/ikigaiMedia1.jpg) center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-video {
-  width: 100%;
-  max-height: 90vh;
-  object-fit: cover;
+.homeList {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  gap: 1rem;
+  margin: 3rem;
+}
+
+.homeButton {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid white;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  will-change: transform;
+}
+
+.homeButton:disabled {
+  pointer-events: none;
+}
+
+.homeButton:hover {
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.homeButton:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-  video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    object-fit: cover;
-    object-position: center;
+  .homeList {
+    flex-direction: column;
+    margin: 1rem;
   }
-}
-
-.contentAccueil {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.overlay {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  width: 100%;
 }
 
 /* ------------------------------------------ Container Global ------------------------------------------*/
 
-.globalContainer {
+/* Présent sur toutes les pages */
+.page-Container {
   width: 100vw;
   min-height: 100vh;
   background-color: white;
@@ -117,12 +220,12 @@ video {
 
 .principalBloc {
   width: 100vw;
-
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .logo {
@@ -192,6 +295,11 @@ video {
   font-size: 1rem;
   cursor: pointer;
   align-items: center;
+  transition: color 0.4s ease;
+}
+
+.navLinks li a:hover {
+  color: grey;
 }
 
 @media (max-width: 768px) {
@@ -210,7 +318,6 @@ video {
     display: none;
     flex-direction: column;
     width: 100%;
-    text-align: center;
     background-color: black;
   }
 
@@ -241,25 +348,234 @@ video {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100vw;
   margin: 0px 30px 30px 30px;
-  border: solid black 2px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  width: 80vw;
 }
+
 .mois {
   text-align: center;
+  width: 150px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
 }
 
 .divInfoTextLuMois {
   text-align: left;
-  width: 200px;
+  width: 150px;
+  margin: 5px;
+  height: 150px;
 }
 
 .blocMois {
   display: flex;
   flex-direction: row;
+  height: auto;
+  width: auto;
+  margin-bottom: 30px;
 }
+
+.journeeType {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  width: 600px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.journeeType p {
+  margin: 0;
+}
+
+.journee {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+}
+
+.journee p {
+  padding: 5px;
+  margin: 0;
+}
+
+.horaire {
+  background-color: black;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.horaire p {
+  color: white;
+}
+
+.infoJour {
+  width: 500px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoJour li {
+  margin-left: 5px;
+}
+
+.containerPriceCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.priceCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.priceCard {
+  height: 250px;
+  width: 200px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .priceCards {
+    flex-direction: row;
+  }
+  .priceCard {
+    height: 300px;
+  }
+}
+
+.headPriceCard {
+  background-color: black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.headPriceCard h4 {
+  color: white;
+}
+
+.headPriceCard h5 {
+  color: white;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 130px;
+  margin: 0;
+}
+
+.euro {
+  color: black;
+  font-size: 35px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.solidaire {
+  font-size: 9px;
+  margin: 0;
+}
+
+.listeLigne {
+  display: flex;
+  flex-direction: row;
+}
+
+.moisBack {
+  background-color: black;
+  color: white;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.chevron {
+  font-size: 10px;
+}
+
 @media (max-width: 768px) {
+  .containerMois {
+    width: 50vw;
+  }
+
   .blocMois {
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .containerPriceCard {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .journee {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .journeeType {
+    width: 400px;
+  }
+
+  .infoJour {
+    width: 400px;
+    text-align: center;
+  }
+
+  .horaire {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .listeLigne {
+    display: flex;
     flex-direction: column;
   }
 }
@@ -283,19 +599,6 @@ video {
 }
 
 .marionApropos img {
-  width: 100%;
-  margin-top: 18.72px;
-}
-
-.leaApropos {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100vw;
-  margin-bottom: 30px;
-}
-
-.leaApropos img {
   width: 100%;
   margin-top: 18.72px;
 }
@@ -325,7 +628,7 @@ video {
   justify-content: center;
   text-align: left;
   padding: 0px 20px 0px 20px;
-  max-width: 400px;
+  max-width: 450px;
 }
 
 .divInfoText p {
@@ -395,40 +698,117 @@ video {
 
 /* ------------------------------------------ Medias ------------------------------------------*/
 
+/* Flex Layout */
 .mediasFlexContainer {
   display: flex;
-  flex-direction: row;
-}
-.mediasFlex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping of elements */
   justify-content: center;
-  width: 100vw;
+  gap: 15px; /* Uniform spacing between all items */
+  margin-top: 20px;
+  align-items: stretch; /* Ensure consistent height alignment */
 }
 
-.blocMedias {
-  width: 300px;
-  height: 300px;
+/* Grouped Small Items */
+.mediaGroup {
   display: flex;
   flex-direction: column;
+  gap: 15px; /* Space between stacked items */
+  flex: 1 1 calc(25% - 15px); /* Occupy the same space as a large item */
+  max-width: calc(25% - 15px);
 }
 
-.mediasImg {
-  width: 60%;
+/* Media Styling */
+.mediasFlexContainer img,
+.mediasFlexContainer video {
+  width: 100%; /* Ensure media fills its container */
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.sectionMedias {
+.mediasFlexContainer img:hover,
+.mediasFlexContainer video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mediasFlexContainer .mediaGroup,
+  .mediasFlexContainer img,
+  .mediasFlexContainer video {
+    flex: 1 1 calc(33.333% - 15px);
+    max-width: calc(33.333% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .mediasFlexContainer .mediaGroup,
+  .mediasFlexContainer img,
+  .mediasFlexContainer video {
+    flex: 1 1 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .mediasFlexContainer .mediaGroup,
+  .mediasFlexContainer img,
+  .mediasFlexContainer video {
+    flex: 1 1 calc(100% - 15px);
+    max-width: calc(100% - 15px);
+  }
+}
+
+.priceContent {
+  height: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
-.mediasForm {
-  width: 400px;
-  align-items: center;
+.priceButton {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  img {
+    width: 80%;
+  }
+}
+
+.priceButton:disabled {
+  pointer-events: none;
+}
+
+.priceButton:hover {
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.priceButton:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 /* ------------------------------------------ Jeune Ballet ------------------------------------------*/
@@ -438,6 +818,47 @@ video {
 }
 
 /* ------------------------------------------ Contact ------------------------------------------*/
+
+/* General Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Input Focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #000; /* Highlight border on focus */
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Textarea Resizing */
+textarea {
+  resize: none;
+}
+
+/* Placeholder Styling */
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
 
 .leftRightContainer {
   width: 100vw;
@@ -462,10 +883,16 @@ video {
   padding-right: 30px;
   border-top-left-radius: 10px 10px;
   border-bottom-left-radius: 10px 10px;
+
+  h4,
+  h3 {
+    color: white;
+  }
 }
 
 .leftBloc p {
   margin-bottom: 7px;
+  color: white;
 }
 
 .rightBloc {
@@ -481,15 +908,14 @@ form {
   max-width: 900px;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
   border-radius: 5px;
 }
 
 .formRow {
-  margin: 10px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
 }
 .form-control {
   max-width: 500px;
@@ -499,35 +925,6 @@ form {
 .formInput {
   padding: 15px 10px;
   background-color: white;
-}
-
-.firstNameInput input {
-  border: solid #3b3b40 2px;
-  border-radius: 5px;
-  width: 130px;
-}
-
-.lastNameInput input {
-  border: solid #3b3b40 2px;
-  border-radius: 5px;
-  width: 130px;
-}
-
-.emailInput input {
-  border: solid #3b3b40 2px;
-  border-radius: 5px;
-  width: 130px;
-}
-
-.phoneInput input {
-  border: solid #3b3b40 2px;
-  border-radius: 5px;
-  width: 130px;
-}
-
-.messageInput input {
-  border: solid #3b3b40 2px;
-  border-radius: 5px;
 }
 
 .submitButton {
@@ -666,9 +1063,101 @@ form {
   align-items: center;
 }
 
+/* CSS */
+.moreAbout {
+  background-color: #ffffff;
+  border: 1px solid #222222;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family:
+    Circular,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition:
+    box-shadow 0.2s,
+    -ms-transform 0.1s,
+    -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.moreAbout:focus-visible {
+  box-shadow:
+    #222222 0 0 0 2px,
+    rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.moreAbout:active {
+  background-color: #f7f7f7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.moreAbout:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+/* ------------------------------------------ IKO ------------------------------------------*/
+
+.containerIko {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.creationIkoImg {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.blocVideoInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.videoIko {
+  height: 540px;
+  width: 300px;
+}
+
+.videoIko video {
+  height: 540px;
+  width: 300px;
+}
+
+.infoNextVideo {
+  margin: 25px;
+}
+
 @media (max-width: 768px) {
   .creationsSection {
     margin-bottom: 100px;
+  }
+
+  .blocVideoInfo {
+    flex-direction: column;
   }
 }
 
@@ -695,7 +1184,7 @@ form {
 p.creationTextTitre {
   color: black;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin: 0px;
   padding: 0;
 }
 
@@ -709,7 +1198,7 @@ p.creationTextDesc {
 
 p.creationTextDancer {
   color: black;
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -742,10 +1231,4 @@ button {
   background-color: white;
   border-radius: 5px;
   margin: 20px 0px 20px 0px;
-}
-
-footer {
-  position: absolute;
-  top: 85%;
-  left: 75%;
 }
